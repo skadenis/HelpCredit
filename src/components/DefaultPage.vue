@@ -9,7 +9,7 @@
       </div>
       <div class="today_credit_block">
         <p class="today_credit">Cегодня одобрено кредитов на:</p>
-        <p class="today_credit_amount">{{formatter(amount)}}</p>
+        <p class="today_credit_amount">{{ formatter(amount) }}</p>
       </div>
     </div>
     <div class="content">
@@ -188,6 +188,9 @@ export default {
   margin: 90px auto 20px;
   display: block;
 }
+.content button:hover{
+  background: #0188d3;
+}
 .footer{
   bottom: 0;
   position: absolute;
@@ -337,14 +340,21 @@ export default {
 @media screen and (max-width: 600px){
   .header{
     flex-flow: column-reverse;
-    max-width: 100%;
+    width: calc(100% - 50px);
+    display: flex;
+    flex-direction: row-reverse;
   }
+  .header > * {
+    flex: 1;
+  }
+
   .header img{
-    width: calc(100% - 20px);
+    width: calc(100%);
     padding: 10px;
   }
   .header .logo img{
     margin: 15px 0;
+    width: 75%;
   }
   .today_credit_block{
     display: none;
