@@ -4,7 +4,7 @@ export default class BaseApi {
   constructor () {
 
     this.axios = axios.create({
-      baseURL: '//localhost:3000/denis/bank/unicredit/',
+      baseURL: '//backend.gastrosoft.by/denis/bank/unicredit/',
       headers: {}
     });
   }
