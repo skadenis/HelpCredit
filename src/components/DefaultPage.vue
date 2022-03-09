@@ -9,10 +9,10 @@
       </div>
       <div class="today_credit_block">
         <p class="today_credit">Cегодня одобрено кредитов на:</p>
-        <p class="today_credit_amount">{{ amount }}</p>
+        <p class="today_credit_amount">{{ formatter(amount) }}</p>
       </div>
     </div>
-    <div class="content">
+    <div class="content" v-if="!formStatus">
       <h1>5 банков готовы одобрить  кредит по сниженной ставке</h1>
       <h3>Оформи заявку и жди звонков от кредитных брокеров</h3>
       <div class="form">
@@ -29,8 +29,10 @@
         <button @click="sendForm();">ПОЛУЧИТЬ  ПРЕДЛОЖЕНИЯ ОТ БАНКОВ</button>
       </div>
     </div>
+    <div class="content" v-else>
+      <h1>Ваша заявка сформированна, ожидайте с вами свяжуться в ближайшее время</h1>
+    </div>
     <div class="footer">
-<!--      <p>Оказание информационных услуг по выдаче кредитов </p>-->
     </div>
   </div>
 </template>
@@ -44,6 +46,7 @@ export default {
   data() {
     return {
       amount: 200000,
+      formStatus: false,
       form: {
         phone: ''
       }
@@ -72,6 +75,11 @@ export default {
     },
     sendForm(){
       Basic.sendLead(this.form)
+      .then(function (res){
+        console.log(res);
+      })
+      this.formStatus = true
+
     }
   }
 
