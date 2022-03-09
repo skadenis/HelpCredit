@@ -21,8 +21,8 @@
 <!--          <input type="text">-->
 <!--        </div>-->
         <div>
-          <label>Номер телефона:</label>
-          <input type="text" v-model="form.phone" v-maska="'+375(##)###-##-##'" placeholder="+375(__)___-__-__">
+          <label :style="'color:'+this.color">Номер телефона:</label>
+          <input type="text" v-model="form.phone" v-maska="'+375(##)###-##-##'" placeholder="+375(__)___-__-__" :style="'border: 3px solid '+this.color">
         </div>
       </div>
       <div>
@@ -47,6 +47,7 @@ export default {
     return {
       amount: 200000,
       formStatus: false,
+      color: 'white',
       form: {
         phone: ''
       }
@@ -69,16 +70,20 @@ export default {
     formatter: function (param) {
       return (new Intl.NumberFormat('BY', {
         style: 'currency',
-        currency: 'BYN',
-        maximumFractionDigits: 0
+        currency: 'BYN'
       })).format(param);
     },
     sendForm(){
-      Basic.sendLead(this.form)
-      .then(function (res){
-        console.log(res);
-      })
-      this.formStatus = true
+      if (this.form.phone.length === 17){
+        Basic.sendLead(this.form)
+            .then(function (res){
+              console.log(res);
+            })
+        this.formStatus = true
+      }else{
+        this.color = 'red';
+      }
+
 
     }
   }
@@ -90,7 +95,7 @@ export default {
 <style scoped>
 .default-page{
   width: 100%;
-  min-width: 400px;
+  /*min-width: 400px;*/
   min-height: 100vh;
   padding: 0;
   margin: 0;
@@ -387,6 +392,9 @@ export default {
   .content > .form {
     flex-direction: column;
   }
+  .content > .form > div{
+    margin-top: 30px;
+  }
   .content > .form > div:nth-child(2){
     margin-left: 0;
   }
@@ -399,6 +407,7 @@ export default {
   .content button{
     padding: 20px;
     font-size: 16px;
+    margin-top: 50px;
   }
 }
 </style>
