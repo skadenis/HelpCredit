@@ -57,6 +57,11 @@ export default {
   directives: { maska },
   mounted() {
     setInterval(this.addSum, 5000)
+    if(window.location.pathname === '/'){
+      this.formStatus = false
+    }else {
+      this.formStatus = true
+    }
   },
   methods: {
     addSum(){
