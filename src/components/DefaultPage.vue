@@ -45,7 +45,7 @@ import Basic from "../../api/Basic";
 export default {
   data() {
     return {
-      amount: 200000,
+      amount: 146378,
       formStatus: false,
       color: 'white',
       form: {
@@ -79,7 +79,8 @@ export default {
             .then(function (res){
               console.log(res);
             })
-        this.formStatus = true
+        this.formStatus = true;
+        window.location.href = "/thank-you";
       }else{
         this.color = 'red';
       }
