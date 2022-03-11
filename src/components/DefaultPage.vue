@@ -202,14 +202,14 @@ export default {
   font-size: 25px;
   color: #FFFFFF;
   font-weight: bold;
-  background: #00A3FF;
+  background: #bd2424;
   border: 0;
   cursor: pointer;
   margin: 90px auto 20px;
   display: block;
 }
 .content button:hover{
-  background: #0188d3;
+  background: #930c0c;
 }
 .footer{
   bottom: 0;
