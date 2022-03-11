@@ -7,6 +7,7 @@
       <div class="logo">
         <img src="../assets/logo-helpcredit.svg" alt="логотип helpcredit.by">
       </div>
+
       <div class="today_credit_block">
         <p class="today_credit">Cегодня одобрено кредитов на:</p>
         <p class="today_credit_amount">{{ formatter(amount) }}</p>
