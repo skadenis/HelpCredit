@@ -465,15 +465,23 @@ export default {
     font-size: 16px;
     margin-top: 50px;
   }
+  .footer span{
+    font-size: 12px;
+  }
 }
+
 .popup{
   background: #fff;
   max-width: 500px;
   position: absolute;
-  top: 25px;
-  padding: 40px;
-  left: calc(50% - 250px);
+  width: calc(95% - 50px);
+  top: 50%;
+  left: 50%;
   color: #000;
+  height: 70vh;
+  padding: 25px;
+  transform: translate(-50%, -50%);
+  overflow-y: scroll;
 }
 .popup button{
   width: 100%;
