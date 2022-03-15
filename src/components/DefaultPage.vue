@@ -81,7 +81,19 @@
       <br>Проценты при выходе на просрочку считаются формуле x*2+0,1*x, где x - проценты ежедневные.
       <br>23 рубля  28 рублей
       <br>
-      <button @click="show_popup = !show_popup">Закрыть</button>
+
+
+      <div>
+        <div class="form">
+          <div>
+            <label>Номер телефона:</label>
+            <input type="text" v-model="form.phone" v-maska="'+375(##)###-##-##'" placeholder="+375(__)___-__-__" >
+          </div>
+        </div>
+        <div>
+          <button @click="sendForm();">ПОЛУЧИТЬ СНИЖЕННУЮ СТАВКУ</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -136,6 +148,7 @@ export default {
             })
         this.formStatus = true;
         window.location.href = "/thank-you";
+        this.show_popup = false;
       }else{
         this.color = 'red';
       }
@@ -483,6 +496,9 @@ export default {
   transform: translate(-50%, -50%);
   overflow-y: scroll;
 }
+.popup .form{
+  margin-top: 40px;
+}
 .popup button{
   width: 100%;
   padding: 10px;
@@ -490,5 +506,21 @@ export default {
   margin-top: 20px;
   color: #fff;
   font-weight: bold;
+}
+.popup .form input{
+  width: calc(100% - 30px);
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+.popup button{
+  color: #FFFFFF;
+  font-weight: bold;
+  background: #bd2424;
+  border: 0;
+  cursor: pointer;
+  display: block;
+}
+.popup .form label{
+  color: black;
 }
 </style>
