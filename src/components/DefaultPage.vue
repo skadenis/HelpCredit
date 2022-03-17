@@ -168,7 +168,7 @@ export default {
   min-height: 100vh;
   padding: 0;
   margin: 0;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://s1.1zoom.ru/b2948/884/Money_Banknotes_Dollars_100_565560_1600x1200.jpg');
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/src/assets/bg.png');
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
