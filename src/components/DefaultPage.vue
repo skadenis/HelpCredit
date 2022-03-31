@@ -147,7 +147,7 @@ export default {
               console.log(res);
             })
         this.formStatus = true;
-        window.location.href = "/thank-you";
+        // window.location.href = "/thank-you";
         this.show_popup = false;
       }else{
         this.color = 'red';
