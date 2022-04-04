@@ -168,7 +168,7 @@ export default {
   min-height: 100vh;
   padding: 0;
   margin: 0;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/src/assets/bg.png');
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/src/assets/kredit_dengi_dolg.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
