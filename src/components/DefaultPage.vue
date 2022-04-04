@@ -5,7 +5,7 @@
         <img src="../assets/partners.svg" alt="логотип helpcredit.by">
       </div>
       <div class="logo">
-        <img src="../assets/logo-helpcredit.svg" alt="логотип helpcredit.by">
+        <img src="../assets/CreditBest.svg" alt="логотип helpcredit.by">
       </div>
 
       <div class="today_credit_block">
@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="content" v-if="!formStatus">
-      <h1>Оформи любой кредит по ставке от 1,16%!</h1>
+      <h1>Оформи любой кредит по ставке от 13,99% годовых!</h1>
       <h3>Оставь номер телефона и получи кредит через нас по сниженной ставке</h3>
       <div class="form">
 <!--        <div>-->
@@ -264,14 +264,14 @@ export default {
   font-size: 25px;
   color: #FFFFFF;
   font-weight: bold;
-  background: #bd2424;
+  background: #4abd24;
   border: 0;
   cursor: pointer;
   margin: 90px auto 20px;
   display: block;
 }
 .content button:hover{
-  background: #930c0c;
+  background: #52a236;
 }
 .footer{
   bottom: 0;
