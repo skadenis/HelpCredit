@@ -513,7 +513,7 @@ button.back{
   font-weight: bold;
   display: block;
   color: #fff;
-
+  background: #e0c784;
 }
 
 .home_page .main {
