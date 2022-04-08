@@ -506,7 +506,7 @@ button.back{
 }
 
 .home_page .header{
-  margin-top: 30px;
+  margin-top: 10px;
   line-height: 32px;
   margin-bottom: 15px;
   font-size: 25px;
@@ -565,7 +565,8 @@ button.back{
 }
 .image_partners .partners{
   padding: 15px 0;
-  width: calc(100% - 30px);
+  /*width: calc(100% - 30px);*/
   max-width: 500px;
+  max-height: 49px;
 }
 </style>
