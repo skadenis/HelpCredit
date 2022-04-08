@@ -2,14 +2,10 @@
   <div>
     <div class="page home_page" v-if="show_page === 0">
       <div class="main">
-        <div class="image_partners">
-<!--          <img src="../assets/CreditBest.svg" alt="">-->
-          <img src="../assets/partners.svg" alt="" class="partners" >
-        </div>
         <span class="header">ПРОЙДИТЕ ТЕСТ И МЫ НАЙДЕМ КРЕДИТ,<br> КОТОРЫЙ <br> <span class="pro-red">ВЫ ТОЧНО ПОЛУЧИТЕ</span></span>
         <div class="button-padding-position">
           <p class="analis">Проанализируем более 200 банковских предложений.</p>
-          <button @click="show_page++;" onclick="ym(87778824,'reachGoal','startOpros')" class="btn-red">ПОЛУЧИТЬ КРЕДИТ</button>
+          <button @click="show_page++;" onclick="ym(87778824,'reachGoal','startOpros')" class="btn-red">НАЧАТЬ ТЕСТ</button>
           <p class="rasschet">+ расчет % одобрения кредита после прохождения теста</p>
         </div>
       </div>
@@ -176,7 +172,7 @@ export default {
       formStatus: false,
       color: 'white',
       show_popup: false,
-      show_page: 0,
+      show_page: 6,
       quiz: {
         1: null,
         2: null,
@@ -229,7 +225,8 @@ export default {
     sendForm(){
       if (this.form.phone.length ===  17){
         Basic.sendLead(this.form)
-            .then(function (){
+            .then(function (res){
+              console.log(res);
               window.location.href = "/thank-you";
             })
         // this.formStatus = true;
@@ -325,7 +322,6 @@ button.back{
 }
 .pro-red{
   color: #d4253e;
-  font-size: 110%;
 }
 
 .wrapper_quiz button{
@@ -506,13 +502,12 @@ button.back{
 }
 
 .home_page .header{
-  margin-top: 30px;
+  margin-top: 40px;
   line-height: 32px;
   margin-bottom: 15px;
   font-size: 25px;
   font-weight: bold;
   display: block;
-  color: #fff;
 
 }
 
@@ -525,8 +520,10 @@ button.back{
   margin-bottom: 0;
 }
 .home_page .main button{
+  min-width: 350px;
   min-height: 60px;
   font-family: 'Nunito', sans-serif;
+  font-size: 22px;
   text-transform: uppercase;
   letter-spacing: 1.3px;
   font-weight: 700;
@@ -545,6 +542,7 @@ button.back{
   animation-iteration-count: infinite;
   animation-direction: alternate;
   font-size: 27px;
+  min-width: 350px;
   max-width: 100%;
 }
 
@@ -559,13 +557,5 @@ button.back{
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-}
-.image_partners{
-
-}
-.image_partners .partners{
-  padding: 15px 0;
-  width: calc(100% - 30px);
-  max-width: 500px;
 }
 </style>
