@@ -227,9 +227,9 @@ export default {
         Basic.sendLead(this.form)
             .then(function (res){
               console.log(res);
+              window.location.href = "/thank-you";
             })
         // this.formStatus = true;
-        window.location.href = "/thank-you";
         this.show_page++;
         // this.show_popup = false;
       }else{
