@@ -5,7 +5,7 @@
         <span class="header">ПРОЙДИТЕ ТЕСТ И МЫ НАЙДЕМ КРЕДИТ,<br> КОТОРЫЙ <br> <span class="pro-red">ВЫ ТОЧНО ПОЛУЧИТЕ</span></span>
         <div class="button-padding-position">
           <p class="analis">Проанализируем более 200 банковских предложений.</p>
-          <button @click="show_page++;" class="btn-red">НАЧАТЬ ТЕСТ</button>
+          <button @click="show_page++;" onclick="ym(87778824,'reachGoal','startOpros')" class="btn-red">НАЧАТЬ ТЕСТ</button>
           <p class="rasschet">+ расчет % одобрения кредита после прохождения теста</p>
         </div>
       </div>
@@ -122,7 +122,7 @@
     <div class="page" v-if="show_page === 5">
       <div class="wrapper_quiz">
         <p class="question">Есть ли у вас сейчас непогашенные задолженности по кредитам?</p>
-        <p class="page_num">Вопрос {{ show_page }} из 6</p>
+        <p class="page_num">Вопрос {{ show_page }} из 5</p>
         <div class="answers">
           <div class="variant" @click="quiz[show_page] = 1;" :class="quiz[show_page] === 1 ? 'active' : ''">Да</div>
           <div class="variant" @click="quiz[show_page] = 2;" :class="quiz[show_page] === 2 ? 'active' : ''">Нет</div>
@@ -139,7 +139,7 @@
 
         <p class="label">Ваш номер телефона:</p>
         <input type="text" v-model="form.phone" v-maska="'+375(##)###-##-##'" placeholder="+375(__)___-__-__" :style="'border: 3px solid '+this.color">
-        <button class="next" @click="(form.phone).length === 17 ? sendForm() : '';" :class="(form.phone).length !== 17 ? 'disabled' : ''">ПОЛУЧИТЬ РАССЧЕТ</button>
+        <button class="next" :onclick="((form.phone).length === 17 ? 'ym(87778824,\'reachGoal\',\'sendForm\')' : '')" @click="(form.phone).length === 17 ? sendForm() : '';" :class="(form.phone).length !== 17 ? 'disabled' : ''">ПОЛУЧИТЬ РАССЧЕТ</button>
       </div>
     </div>
 
