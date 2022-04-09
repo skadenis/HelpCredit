@@ -118,13 +118,18 @@ export default {
   },
   directives: { maska },
   mounted() {
-    console.log(this.$route.query)
     setInterval(this.addSum, 5000)
-    if(window.location.pathname === '/'){
-      this.formStatus = false
-    }else {
-      this.formStatus = true
+    switch(window.location.pathname) {
+
+      default:
+        this.formStatus = false;
+        break;
+
+      case '/thank-you':
+        this.formStatus = true;
+        break;
     }
+
   },
   methods: {
     addSum(){
