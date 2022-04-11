@@ -9,7 +9,7 @@
         <span class="header">ПРОЙДИТЕ ТЕСТ И МЫ НАЙДЕМ КРЕДИТ,<br> КОТОРЫЙ <br> <span class="pro-red">ВЫ ТОЧНО ПОЛУЧИТЕ</span></span>
         <div class="button-padding-position">
           <p class="analis">Проанализируем более 200 банковских предложений.</p>
-          <button @click="show_page++;" onclick="ym(87778824,'reachGoal','startOpros')" class="btn-red">ПОЛУЧИТЬ КРЕДИТ</button>
+          <button @click="show_page++;" onclick="ym(88151664,'reachGoal','Открытие опроса')" class="btn-red">ПОЛУЧИТЬ КРЕДИТ</button>
           <p class="rasschet">+ расчет % одобрения кредита после прохождения теста</p>
         </div>
       </div>
@@ -70,7 +70,7 @@
           <div class="variant" @click="quiz['1'] = 3;" :class="quiz['1'] === 3 ? 'active' : ''">до 15000 BYN</div>
           <div class="variant" @click="quiz['1'] = 4;" :class="quiz['1'] === 4 ? 'active' : ''">свыше 15000 BYN</div>
         </div>
-        <button class="next" @click="quiz['1'] === null ? '' : show_page++;" :class="quiz['1'] === null ? 'disabled' : ''">Далее</button>
+        <button class="next" :onclick="(quiz[show_page] === null ? 'ym(88151664,\'reachGoal\',\'переход на вопрос 2\')' : '')" @click="quiz['1'] === null ? '' : show_page++;" :class="quiz['1'] === null ? 'disabled' : ''">Далее</button>
       </div>
     </div>
 
@@ -86,7 +86,7 @@
           <div class="variant" @click="quiz[show_page] = 5;" :class="quiz[show_page] === 5 ? 'active' : ''">более 5 лет</div>
         </div>
         <button @click="show_page--;" class="disabled back">Назад</button>
-        <button class="next" @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>
+        <button class="next" :onclick="(quiz[show_page] != null ? 'ym(88151664,\'reachGoal\',\'переход на вопрос 3\')' : '')" @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>
       </div>
     </div>
 
@@ -102,7 +102,7 @@
           <div class="variant" @click="quiz[show_page] = 5;" :class="quiz[show_page] === 5 ? 'active' : ''">другое</div>
         </div>
         <button @click="show_page--;" class="disabled back">Назад</button>
-        <button class="next" @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>
+        <button class="next" :onclick="(quiz[show_page] != null ? 'ym(88151664,\'reachGoal\',\'переход на вопрос 4\')' : '')" @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>
       </div>
     </div>
 
@@ -119,7 +119,7 @@
           <div class="variant" @click="quiz[show_page] = 6;" :class="quiz[show_page] === 6 ? 'active' : ''">предприниматель</div>
         </div>
         <button @click="show_page--;" class="disabled back">Назад</button>
-        <button class="next" @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>
+        <button class="next" :onclick="(quiz[show_page] != null ? 'ym(88151664,\'reachGoal\',\'переход на вопрос 5\')' : '')" @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>
       </div>
     </div>
 
@@ -132,7 +132,7 @@
           <div class="variant" @click="quiz[show_page] = 2;" :class="quiz[show_page] === 2 ? 'active' : ''">Нет</div>
         </div>
         <button @click="show_page--;" class="disabled back">Назад</button>
-        <button class="next" @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>
+        <button class="next" :onclick="(quiz[show_page] != null ? 'ym(88151664,\'reachGoal\',\'Переход на форму\')' : '')" @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>
       </div>
     </div>
 
