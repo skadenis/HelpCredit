@@ -143,7 +143,7 @@
 
         <p class="label">Ваш номер телефона:</p>
         <input type="text" v-model="form.phone" v-maska="'+375(##)###-##-##'" placeholder="+375(__)___-__-__" :style="'border: 3px solid '+this.color">
-        <button class="next" :onclick="((form.phone).length === 17 ? 'ym(87778824,\'reachGoal\',\'sendForm\')' : '')" @click="(form.phone).length === 17 ? sendForm() : '';" :class="(form.phone).length !== 17 ? 'disabled' : ''">ПОЛУЧИТЬ РАССЧЕТ</button>
+        <button class="next" :onclick="((form.phone).length === 17 ? 'ym(88151664,\'reachGoal\',\'Отправка формы\')' : '')" @click="(form.phone).length === 17 ? sendForm() : '';" :class="(form.phone).length !== 17 ? 'disabled' : ''">ПОЛУЧИТЬ РАССЧЕТ</button>
       </div>
     </div>
 
