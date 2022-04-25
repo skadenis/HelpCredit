@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import DefaultPage from './components/NewSite.vue'
+import DefaultPage from './components/DefaultPage.vue'
 
 export default {
   components: {
