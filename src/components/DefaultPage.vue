@@ -264,7 +264,6 @@ export default {
         data.quiz = this.quiz;
         Basic.sendLead(data)
             .then(function (){
-              this.error = null;
               window.location.href = "/thank-you";
             })
         // this.formStatus = true;
