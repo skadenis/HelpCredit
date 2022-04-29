@@ -155,15 +155,29 @@
 
     <div class="page" v-if="show_page === 7">
       <div class="wrapper_quiz final">
-        <p class="header">Мы подобрали для вас <span class="pro-red">4</span> варианта финансирования от <span class="pro-red">15%</span> годовых</p>
-        <p class="subheader">Введите ваш номер телефона и получите <b>бесплатную</b> консультацию от специалиста по кредитованию</p>
+        <p class="header">Куда отправить расчет условий получения выгодного кредита?</p>
+<!--        <p class="subheader">Введите ваш номер телефона и получите <b>бесплатную</b> консультацию от специалиста по кредитованию</p>-->
 <!--        <p><i>Введите ваш номер телефона и получите бесплатную консультацию от специалиста по кредитованию</i></p>-->
-
+        <p class="form_error" v-if="error !== null">{{error}}</p>
         <p class="label">Ваш телефон:</p>
         <input type="text" v-model="form.phone" v-maska="'+375(##)###-##-##'" placeholder="+375(__)___-__-__" :style="'border: 3px solid '+this.color">
-        <p><i>* специалист задаст дополнительные вопросы и предложит оптимальные варианты кредитования.</i></p>
+<!--        <p><i>* специалист задаст дополнительные вопросы и предложит оптимальные варианты кредитования.</i></p>-->
+        <p class="remark_form"><i>* на основании ответов мы подберем подходящие варианты и отправим варианты и условия для получения кредита</i></p>
+        <div class="lock-block">
+          <div class="lock">
+            <svg width="17" height="21" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.8332 10.4999C16.8332 9.35096 15.8988 8.41659 14.7498 8.41659H13.7082V5.29159C13.7082 2.41971 11.3717 0.083252 8.49984 0.083252C5.62796 0.083252 3.2915 2.41971 3.2915 5.29159V8.41659H2.24984C1.10088 8.41659 0.166504 9.35096 0.166504 10.4999V18.8333C0.166504 19.9822 1.10088 20.9166 2.24984 20.9166H14.7498C15.8988 20.9166 16.8332 19.9822 16.8332 18.8333V10.4999ZM5.37484 5.29159C5.37484 3.56867 6.77692 2.16659 8.49984 2.16659C10.2228 2.16659 11.6248 3.56867 11.6248 5.29159V8.41659H5.37484V5.29159Z" fill="#03A626"></path>
+            </svg>
+            <p>
+              Все данные защищены
+            </p>
+          </div>
+        </div>
 
-        <button class="next" :onclick="((form.phone).length === 17 ? 'ym(88151664,\'reachGoal\',\'Отправка формы\')' : '')" @click="(form.phone).length === 17 ? sendForm() : '';" :class="(form.phone).length !== 17 ? 'disabled' : ''">ПОЛУЧИТЬ БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ</button>
+
+<!--        <button class="next" :onclick="((form.phone).length === 17 ? 'ym(88151664,\'reachGoal\',\'Отправка формы\')' : '')" @click="(form.phone).length === 17 ? sendForm() : '';" :class="(form.phone).length !== 17 ? 'disabled' : ''">ПОДОБРАТЬ КРЕДИТ</button>-->
+        <button class="next sendForm" :onclick="((form.phone).length === 17 ? 'ym(88151664,\'reachGoal\',\'Отправка формы\')' : '')" @click="(form.phone).length === 17 ? sendForm() : make_error();">ПОДОБРАТЬ КРЕДИТ</button>
+
       </div>
     </div>
 
@@ -194,6 +208,7 @@ export default {
     return {
       amount: 146378,
       formStatus: false,
+      error: null,
       color: 'white',
       show_popup: false,
       show_page: 0,
@@ -214,16 +229,13 @@ export default {
   mounted() {
     // setInterval(this.addSum, 5000)
     switch (window.location.pathname){
-      case '/':
-        this.show_page = 0
-        this.formStatus = false
-        break;
       case '/thank-you':
         this.show_page = 8
         this.formStatus = true
         break;
       default:
         this.show_page = 0
+        this.error = null;
         this.formStatus = false
         break;
 
@@ -248,8 +260,11 @@ export default {
     },
     sendForm(){
       if (this.form.phone.length ===  17){
-        Basic.sendLead(this.form)
+        let data = this.form;
+        data.quiz = this.quiz;
+        Basic.sendLead(data)
             .then(function (){
+              this.error = null;
               window.location.href = "/thank-you";
             })
         // this.formStatus = true;
@@ -260,6 +275,9 @@ export default {
       }
 
 
+    },
+    make_error(){
+      this.error = 'Неверный номер телефона!';
     }
   }
 
@@ -590,5 +608,46 @@ button.back{
   /*width: calc(100% - 30px);*/
   max-width: 500px;
   max-height: 49px;
+}
+.lock{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 20px auto;
+}
+.lock > p {
+  padding: 0;
+  margin: 2px 0 0 10px;
+}
+button.sendForm{
+  padding: 30px;
+  height: auto;
+  font-size: 20px;
+}
+.remark_form{
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 12px;
+  margin-top: 15px;
+  display: block;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.form_error{
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+  font-weight: bold;
+  color: red;
+  font-size: 16px;
 }
 </style>
