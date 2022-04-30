@@ -1,63 +1,93 @@
 <template>
   <div>
-    <div class="page home_page" v-if="show_page === 0">
-      <div class="main">
-        <div class="image_partners">
-<!--          <img src="../assets/CreditBest.svg" alt="">-->
-          <img src="../assets/partners.svg" alt="" class="partners" >
+    <div class="page home_page" :class="site" v-if="show_page === 0">
+      <div>
+        <div v-if="site === 'help'" class="default-page">
+          <div class="header">
+            <div class="partners">
+              <img src="../assets/partners.svg" alt="логотип helpcredit.by">
+            </div>
+            <div class="logo">
+              <img src="../assets/logo-helpcredit.svg" alt="логотип helpcredit.by">
+            </div>
+
+            <div class="today_credit_block">
+              <p class="today_credit">Cегодня одобрено кредитов на:</p>
+              <p class="today_credit_amount">{{ formatter(amount) }}</p>
+            </div>
+          </div>
+          <div class="content" v-if="!formStatus">
+            <h1>ПРОЙДИ ТЕСТ И ПОЛУЧИ КРЕДИТ ОТ БАНКА С 98% ШАНСОМ</h1>
+            <h3>На основании ответов мы подберем выгодный кредит из 23 банков Беларуси и поможем получить деньги</h3>
+            <div>
+              <button @click="show_page++;">НАЧАТЬ ТЕСТ</button>
+            </div>
+          </div>
+          <div class="content" v-else>
+            <h1>Ваша заявка сформированна, ожидайте с вами свяжуться в ближайшее время</h1>
+          </div>
+          <div class="footer">
+            <span @click="show_popup = !show_popup" style="cursor: pointer">Дополнительная информация</span>
+          </div>
         </div>
-        <span class="header">ПРОЙДИТЕ ТЕСТ И МЫ НАЙДЕМ КРЕДИТ,<br> КОТОРЫЙ <br> <span class="pro-red">ВЫ ТОЧНО ПОЛУЧИТЕ</span></span>
-        <div class="button-padding-position">
-          <p class="analis">Проанализируем более 200 банковских предложений.</p>
-          <button @click="show_page++;" onclick="ym(88151664,'reachGoal','Открытие опроса')" class="btn-red">ПОЛУЧИТЬ КРЕДИТ</button>
-          <p class="rasschet">+ расчет % одобрения кредита после прохождения теста</p>
+        <div v-if="site === 'best'" class="main creditbest">
+          <div class="image_partners">
+            <img src="../assets/partners.svg" alt="" class="partners" >
+          </div>
+          <span class="header">ПРОЙДИТЕ ТЕСТ И МЫ НАЙДЕМ КРЕДИТ,<br> КОТОРЫЙ <br> <span class="pro-red">ВЫ ТОЧНО ПОЛУЧИТЕ</span></span>
+          <div class="button-padding-position">
+            <p class="analis">Проанализируем более 200 банковских предложений.</p>
+            <button @click="show_page++;" class="btn-red">ПОЛУЧИТЬ КРЕДИТ</button>
+            <p class="rasschet">+ расчет % одобрения кредита после прохождения теста</p>
+          </div>
         </div>
+
       </div>
-      <div class="disclamer">
-        Вы можете оформить кредит если:
-        Вы старше 18 лет;
-        Ваш официальный доход более 190 руб.;
-        Вы официально трудоустроены;
-        Вы не в декретном отпуске;
-        Отсутствие непогашенных судимостей;
-        Удовлетворительная кредитная история за последние 2 года.
+<!--      <div class="disclamer">-->
+<!--        Вы можете оформить кредит если:-->
+<!--        Вы старше 18 лет;-->
+<!--        Ваш официальный доход более 190 руб.;-->
+<!--        Вы официально трудоустроены;-->
+<!--        Вы не в декретном отпуске;-->
+<!--        Отсутствие непогашенных судимостей;-->
+<!--        Удовлетворительная кредитная история за последние 2 года.-->
 
-        Преимущества работы с нами:
+<!--        Преимущества работы с нами:-->
 
-        Широкая линейка кредитных продуктов;
-        Кредит предоставляется на всю сумму по запросу клиента;
-        Учитываем все получаемые доходы;
-        С нашей помощью вы получите отсрочку до 3-х месяцев первого платежа;
-        Нужные и дорогие подарки постоянным клиентам.
-        Отсутствуют все виды комиссий
-        Условия кредитования:
+<!--        Широкая линейка кредитных продуктов;-->
+<!--        Кредит предоставляется на всю сумму по запросу клиента;-->
+<!--        Учитываем все получаемые доходы;-->
+<!--        С нашей помощью вы получите отсрочку до 3-х месяцев первого платежа;-->
+<!--        Нужные и дорогие подарки постоянным клиентам.-->
+<!--        Отсутствуют все виды комиссий-->
+<!--        Условия кредитования:-->
 
-        Сумма кредита — от 100 до 50 000 бел. рублей;
-        Процентная cтавка — от 13,99% до 28% годовых;
-        Срок кредитования — от 61 дня до 84 мес;
-        Время рассмотрения заявки — 1 час.
-        Примеры расчета:
+<!--        Сумма кредита — от 100 до 50 000 бел. рублей;-->
+<!--        Процентная cтавка — от 13,99% до 28% годовых;-->
+<!--        Срок кредитования — от 61 дня до 84 мес;-->
+<!--        Время рассмотрения заявки — 1 час.-->
+<!--        Примеры расчета:-->
 
-        Сумма 5000 рублей, сроком на три года, 13,99% годовых
-        180,14 рублей первый платеж.
+<!--        Сумма 5000 рублей, сроком на три года, 13,99% годовых-->
+<!--        180,14 рублей первый платеж.-->
 
-        Итоговая переплата: 1485,04 рублей
+<!--        Итоговая переплата: 1485,04 рублей-->
 
-        Сумма 1500 рублей на два года, 18,2% годовых
-        106,08 рублей первый платеж.
+<!--        Сумма 1500 рублей на два года, 18,2% годовых-->
+<!--        106,08 рублей первый платеж.-->
 
-        Итоговая переплата: 1045,92 рублей.
+<!--        Итоговая переплата: 1045,92 рублей.-->
 
-        Штрафные санкции
-        Продукт  Максимальные штрафные санкции  Выплата в 1-й день просрочки  Ежедневные выплаты в последующие дни
-        Долгосрочный кредит
-        Сумма просроченной задолженности выплачивается по ставке кредита с коэффициентом 1,3
-        плюс 0,1% пени в день.
-        17,5 рублей  21 рубль
-        Краткосрочный кредит
-        Проценты при выходе на просрочку считаются формуле x*2+0,1*x, где x - проценты ежедневные.
-        23 рубля  28 рублей
-      </div>
+<!--        Штрафные санкции-->
+<!--        Продукт  Максимальные штрафные санкции  Выплата в 1-й день просрочки  Ежедневные выплаты в последующие дни-->
+<!--        Долгосрочный кредит-->
+<!--        Сумма просроченной задолженности выплачивается по ставке кредита с коэффициентом 1,3-->
+<!--        плюс 0,1% пени в день.-->
+<!--        17,5 рублей  21 рубль-->
+<!--        Краткосрочный кредит-->
+<!--        Проценты при выходе на просрочку считаются формуле x*2+0,1*x, где x - проценты ежедневные.-->
+<!--        23 рубля  28 рублей-->
+<!--      </div>-->
 
     </div>
     <div class="page" v-if="show_page === 1">
@@ -175,7 +205,6 @@
         </div>
 
 
-<!--        <button class="next" :onclick="((form.phone).length === 17 ? 'ym(88151664,\'reachGoal\',\'Отправка формы\')' : '')" @click="(form.phone).length === 17 ? sendForm() : '';" :class="(form.phone).length !== 17 ? 'disabled' : ''">ПОДОБРАТЬ КРЕДИТ</button>-->
         <button class="next sendForm" :onclick="((form.phone).length === 17 ? 'ym(88151664,\'reachGoal\',\'Отправка формы\')' : '')" @click="(form.phone).length === 17 ? sendForm() : make_error();">ПОДОБРАТЬ КРЕДИТ</button>
 
       </div>
@@ -208,6 +237,7 @@ export default {
     return {
       amount: 146378,
       formStatus: false,
+      site: 'help',
       error: null,
       color: 'white',
       show_popup: false,
@@ -489,7 +519,7 @@ button.back{
 }
 
 
-.home_page {
+.home_page.best {
   min-width: 100%;
   width: 100%;
   min-height: 100%;
@@ -506,7 +536,7 @@ button.back{
   z-index: 1;
 }
 @media (max-width: 950px) {
-  .home_page {
+  .home_page.best {
     background: url(//creditonline.by/assets/image/mobil-fon.jpg) no-repeat;
     overflow: auto;
   }
@@ -544,7 +574,7 @@ button.back{
   font-size: 12px;
 }
 
-.home_page .header{
+.home_page .creditbest .header{
   margin-top: 10px;
   line-height: 32px;
   margin-bottom: 15px;
@@ -648,5 +678,424 @@ button.sendForm{
   font-weight: bold;
   color: red;
   font-size: 16px;
+}
+
+
+
+
+
+.home_page.help{
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/src/assets/bg.png');
+}
+
+
+.default-page{
+  width: 100%;
+  /*min-width: 400px;*/
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+.header{
+  margin: 15px 25px;
+  display: flex;
+}
+.header > div{
+  width: 100%;
+}
+.header .partners{
+  margin-top: 15px;
+}
+.header .logo{
+  margin: 0 auto;
+  display: block;
+}
+.header .logo img{
+  margin: 0 auto;
+  display: block;
+}
+
+.header .today_credit_block .today_credit{
+  font-family: sans-serif;
+  font-style: italic;
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: right;
+}
+.header .today_credit_block .today_credit_amount{
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  margin-top: 0;
+  text-align: right;
+
+}
+.content{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: block;
+}
+.content h1{
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 84px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.content h3{
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+
+  color: #FFFFFF;
+}
+.content .form{
+  display: flex;
+}
+.content .form > div {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column
+}
+.content .form > div:nth-child(2) {
+  margin-left: 50px;
+}
+.content .form > div > label{
+  font-family: sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+.content .form > div > input{
+  height: 50px;
+  font-size: 19px;
+  padding-left: 20px;
+}
+.content button{
+  padding: 36px 20px;
+  font-size: 25px;
+  color: #FFFFFF;
+  /*font-weight: bold;*/
+  /*background-image: -webkit-linear-gradient(90deg, #d4253e 0%, #de1f25 100%);*/
+  /*background-image: -ms-linear-gradient(90deg, #d4253e 0%, #de1f25 100%);*/
+  /*background-image: -moz-linear-gradient(90deg, #d4253e 0%, #de1f25 100%);*/
+  /*background: linear-gradient(90deg, #d4253e 0%, #de1f25 100%);*/
+  /*border: 0;*/
+  /*cursor: pointer;*/
+  margin: 90px auto 20px;
+  /*display: block;*/
+  background-image: -webkit-linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
+  background-image: -ms-linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
+  background-image: -moz-linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
+  background: linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
+  width: 100%;
+  /*height: 48px;*/
+  color: #fff;
+  border: none;
+  -webkit-border-radius: 30px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  /*font-size: 15px;*/
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+  /*margin-top: 20px;*/
+  /*margin-bottom: 20px;*/
+}
+.content button:before{
+  content: ""; /* отображает псевдоэлемент */
+  position: absolute; /* абсолютное позиционирование */
+  top: 0; /* верхняя координата */
+  left: 0; /* левая координата */
+  width: 2em; /* относительная ширина */
+  height: 100%; /* высота как у оригинала */
+  background-color: rgba(255, 255, 255, 0.7); /* белый цвет с полупрозрачностью */
+  animation: moveLight 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes moveLight {
+  from {
+    transform: translateX(-15em) skewX(-45deg);
+  }
+  to {
+    transform: translateX(45em) skewX(-45deg);
+  }
+}
+.content button:hover{
+  background: #930c0c;
+}
+.footer{
+  bottom: 0;
+  position: absolute;
+  opacity: 0.2;
+}
+
+/* от 1200 до 1400 */
+@media screen and (min-width: 1200px) and (max-width: 1400px){
+  .header{
+    flex-flow: row-reverse;
+  }
+  .header .logo img{
+    margin: 15px 0;
+    height: 80px;
+  }
+  .today_credit_block{
+    display: none;
+  }
+  .content{
+    max-width: calc(100% - 50px);
+  }
+  .content > h1,
+  .content > h3{
+    text-align: left;
+    width: 100%;
+  }
+  .content > h1{
+    font-size: 60px;
+    line-height: 60px;
+    max-width: 1000px;
+  }
+
+}
+
+/* от 1000 до 1200 */
+@media screen and (min-width: 1000px) and (max-width: 1200px){
+  .header{
+    flex-flow: row-reverse;
+  }
+  .header .logo img{
+    margin: 15px 0;
+    height: 80px;
+  }
+  .today_credit_block{
+    display: none;
+  }
+  .content{
+    max-width: calc(100% - 50px);
+  }
+  .content > h1,
+  .content > h3{
+    text-align: left;
+    width: 100%;
+  }
+  .content > h1{
+    font-size: 60px;
+    line-height: 60px;
+    max-width: 1000px;
+  }
+}
+
+/* от 800 до 1000 */
+@media screen and (min-width: 800px) and (max-width: 1000px){
+  .header{
+    flex-flow: row-reverse;
+  }
+  .header .logo img{
+    margin: 15px 0;
+    height: 80px;
+  }
+  .today_credit_block{
+    display: none;
+  }
+  .content{
+    max-width: calc(100% - 50px);
+  }
+  .content > h1,
+  .content > h3{
+    text-align: left;
+    width: 100%;
+  }
+  .content > h1{
+    font-size: 60px;
+    line-height: 60px;
+    max-width: 1000px;
+  }
+  .content > .form {
+    flex-direction: column;
+  }
+  .content > .form > div:nth-child(2){
+    margin-left: 0;
+  }
+
+}
+
+/* от 800 до 1000 */
+@media screen and (min-width: 600px) and (max-width: 800px){
+  .header{
+    flex-flow: row-reverse;
+    max-width: 100%;
+  }
+  .header img{
+    width: calc(100% - 40px);
+    padding: 20px;
+  }
+  .header .logo img{
+    margin: 15px 0;
+  }
+  .today_credit_block{
+    display: none;
+  }
+  .content{
+    max-width: calc(100% - 50px);
+  }
+  .content > h1,
+  .content > h3{
+    text-align: left;
+    width: 100%;
+  }
+  .content > h1{
+    font-size: 45px;
+    line-height: 45px;
+    max-width: 100%;
+  }
+  .content h3{
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .content > .form {
+    flex-direction: column;
+  }
+  .content > .form > div:nth-child(2){
+    margin-left: 0;
+  }
+  .content .form > div > label{
+    font-size: 14px;
+    line-height: 14px;
+    margin-bottom: 7px;
+  }
+
+  .content button{
+    padding: 36px 20px;
+    font-size: 20px;
+  }
+
+}
+
+@media screen and (max-width: 600px){
+  .header{
+    flex-flow: column-reverse;
+    width: calc(100% - 50px);
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .header > * {
+    flex: 1;
+  }
+
+  .header img{
+    width: calc(100%);
+    padding: 10px;
+  }
+  .header .logo img{
+    margin: 15px 0;
+    width: 75%;
+  }
+  .today_credit_block{
+    display: none;
+  }
+  .content{
+    max-width: calc(100% - 50px);
+  }
+  .content > h1,
+  .content > h3{
+    text-align: center;
+    width: 100%;
+  }
+  .content > h1{
+    font-size: 30px;
+    line-height: inherit;
+    max-width: 100%;
+  }
+  .content h3{
+    font-size: 20px;
+    line-height: inherit;
+  }
+  .content > .form {
+    flex-direction: column;
+  }
+  .content > .form > div{
+    margin-top: 30px;
+  }
+  .content > .form > div:nth-child(2){
+    margin-left: 0;
+  }
+  .content .form > div > label{
+    font-size: 14px;
+    line-height: 14px;
+    margin-bottom: 7px;
+  }
+
+  .content button{
+    padding: 35px;
+    font-size: 34px;
+    bottom: 110px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 20px;
+    width: calc(100% - 40px);
+  }
+  .footer span{
+    font-size: 12px;
+  }
+}
+
+.popup{
+  background: #fff;
+  max-width: 500px;
+  position: absolute;
+  width: calc(95% - 50px);
+  top: 50%;
+  left: 50%;
+  color: #000;
+  height: 70vh;
+  padding: 25px;
+  transform: translate(-50%, -50%);
+  overflow-y: scroll;
+}
+.popup .form{
+  margin-top: 40px;
+}
+.popup button{
+  width: 100%;
+  padding: 10px;
+  background: #930c0c;
+  margin-top: 20px;
+  color: #fff;
+  font-weight: bold;
+}
+.popup .form input{
+  width: calc(100% - 30px);
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+.popup button{
+  color: #FFFFFF;
+  font-weight: bold;
+  background: #bd2424;
+  border: 0;
+  cursor: pointer;
+  display: block;
+}
+.popup .form label{
+  color: black;
 }
 </style>
