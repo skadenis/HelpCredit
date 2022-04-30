@@ -26,9 +26,6 @@
           <div class="content" v-else>
             <h1>Ваша заявка сформированна, ожидайте с вами свяжуться в ближайшее время</h1>
           </div>
-          <div class="footer">
-            <span @click="show_popup = !show_popup" style="cursor: pointer">Дополнительная информация</span>
-          </div>
         </div>
         <div v-if="site === 'best'" class="main creditbest">
           <div class="image_partners">
@@ -1046,7 +1043,7 @@ button.sendForm{
   .content button{
     padding: 35px;
     font-size: 34px;
-    bottom: 110px;
+    bottom: 20px;
     position: absolute;
     left: 0;
     right: 0;
