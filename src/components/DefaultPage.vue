@@ -48,131 +48,21 @@
       </div>
 
     </div>
-    <div class="page" v-if="show_page === 1">
-      <interviewForm v-bind:data="{page_id: 1, question: 'Какая сумма нужна?'}" :initial-result="quiz[1]" @change-result="changeResult"></interviewForm>
-    </div>
 
-    <div class="page" v-if="show_page === 2">
-      <div class="wrapper_quiz">
-        <p class="question">На какой срок?</p>
-        <p class="page_num">Вопрос {{ show_page }} из 6</p>
-        <div class="answers">
-          <div class="variant" @click="quiz[show_page] = 1;" :class="quiz[show_page] === 1 ? 'active' : ''">до 1 года</div>
-          <div class="variant" @click="quiz[show_page] = 2;" :class="quiz[show_page] === 2 ? 'active' : ''">от 1 года до 2 лет</div>
-          <div class="variant" @click="quiz[show_page] = 3;" :class="quiz[show_page] === 3 ? 'active' : ''">от 2 до 3 лет</div>
-          <div class="variant" @click="quiz[show_page] = 4;" :class="quiz[show_page] === 4 ? 'active' : ''">от 3 до 5 лет</div>
-          <div class="variant" @click="quiz[show_page] = 5;" :class="quiz[show_page] === 5 ? 'active' : ''">более 5 лет</div>
-        </div>
-        <button @click="show_page--;" class="disabled back">Назад</button>
-        <button class="next" :onclick="(quiz[show_page] != null ? 'ym(88151664,\'reachGoal\',\'переход на вопрос 3\')' : '')" @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>
+    <div v-if="show_page > 0 && show_page <= questions.length + 1">
+      <div v-for="(item, itemKey) in questions" :key="itemKey" >
+        <interviewForm v-if="itemKey + 1 === show_page" v-bind:data="{page_id: itemKey, all_pages_count: questions.length, question: item.question, variants: item.variants}" @nextPage="show_page++;" :initial-result="quiz[show_page]" @change-result="changeResult" />
       </div>
     </div>
 
-    <div class="page" v-if="show_page === 3">
-      <div class="wrapper_quiz">
-        <p class="question">На какие цели?</p>
-        <p class="page_num">Вопрос {{ show_page }} из 6</p>
-        <div class="answers">
-          <div class="variant" @click="quiz[show_page] = 1;" :class="quiz[show_page] === 1 ? 'active' : ''">потребительский кредит</div>
-          <div class="variant" @click="quiz[show_page] = 2;" :class="quiz[show_page] === 2 ? 'active' : ''">рефинансирование текущего кредита</div>
-          <div class="variant" @click="quiz[show_page] = 3;" :class="quiz[show_page] === 3 ? 'active' : ''">авто</div>
-          <div class="variant" @click="quiz[show_page] = 4;" :class="quiz[show_page] === 4 ? 'active' : ''">на рефинансирование</div>
-          <div class="variant" @click="quiz[show_page] = 5;" :class="quiz[show_page] === 5 ? 'active' : ''">другое</div>
-        </div>
-        <button @click="show_page--;" class="disabled back">Назад</button>
-        <button class="next" :onclick="(quiz[show_page] != null ? 'ym(88151664,\'reachGoal\',\'переход на вопрос 4\')' : '')" @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>
-      </div>
+    <div class="page" v-if="show_page === questions.length + 1">
+      <wrapper_quiz_final @nextPage="this.show_page++;" @makeError="make_error" @sendForm="sendFormComponent" :initialData="form" :color="color" :error="error"/>
     </div>
-
-    <div class="page" v-if="show_page === 4">
-      <div class="wrapper_quiz">
-        <p class="question">Работаете ли вы сейчас?</p>
-        <p class="page_num">Вопрос {{ show_page }} из 6</p>
-        <div class="answers">
-          <div class="variant" @click="quiz[show_page] = 1;" :class="quiz[show_page] === 1 ? 'active' : ''">да, более 3 месяцев</div>
-          <div class="variant" @click="quiz[show_page] = 2;" :class="quiz[show_page] === 2 ? 'active' : ''">да, менее 3 месяцев</div>
-          <div class="variant" @click="quiz[show_page] = 3;" :class="quiz[show_page] === 3 ? 'active' : ''">нет</div>
-          <div class="variant" @click="quiz[show_page] = 4;" :class="quiz[show_page] === 4 ? 'active' : ''">пенсионер / студент</div>
-          <div class="variant" @click="quiz[show_page] = 5;" :class="quiz[show_page] === 5 ? 'active' : ''">в декрете</div>
-          <div class="variant" @click="quiz[show_page] = 6;" :class="quiz[show_page] === 6 ? 'active' : ''">предприниматель</div>
-        </div>
-        <button @click="show_page--;" class="disabled back">Назад</button>
-        <button class="next" :onclick="(quiz[show_page] != null ? 'ym(88151664,\'reachGoal\',\'переход на вопрос 5\')' : '')" @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>
-      </div>
+    <div class="page" v-if="show_page === questions.length + 2">
+      <thank-you-page />
     </div>
-
-    <div class="page" v-if="show_page === 5">
-      <div class="wrapper_quiz">
-        <p class="question">Есть ли у вас сейчас непогашенные задолженности по кредитам?</p>
-        <p class="page_num">Вопрос {{ show_page }} из 6</p>
-        <div class="answers">
-          <div class="variant" @click="quiz[show_page] = 1;" :class="quiz[show_page] === 1 ? 'active' : ''">Да</div>
-          <div class="variant" @click="quiz[show_page] = 2;" :class="quiz[show_page] === 2 ? 'active' : ''">Нет</div>
-        </div>
-        <button @click="show_page--;" class="disabled back">Назад</button>
-        <button class="next" @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>
-      </div>
-    </div>
-
-    <div class="page" v-if="show_page === 6">
-      <div class="wrapper_quiz">
-        <p class="question">Где вы находитесь?</p>
-        <p class="page_num">Вопрос {{ show_page }} из 6</p>
-        <div class="answers">
-          <div class="variant" @click="quiz[show_page] = 1;" :class="quiz[show_page] === 1 ? 'active' : ''">Минск или Минская область</div>
-          <div class="variant" @click="quiz[show_page] = 2;" :class="quiz[show_page] === 2 ? 'active' : ''">Брест или Брестская область</div>
-          <div class="variant" @click="quiz[show_page] = 3;" :class="quiz[show_page] === 3 ? 'active' : ''">Витебск или Витебская область</div>
-          <div class="variant" @click="quiz[show_page] = 4;" :class="quiz[show_page] === 4 ? 'active' : ''">Гомель или Гомельская область</div>
-          <div class="variant" @click="quiz[show_page] = 5;" :class="quiz[show_page] === 5 ? 'active' : ''">Гродно или Гродненская область</div>
-          <div class="variant" @click="quiz[show_page] = 6;" :class="quiz[show_page] === 6 ? 'active' : ''">Могилев или Могилевская область</div>
-        </div>
-        <button @click="show_page--;" class="disabled back">Назад</button>
-        <button class="next" :onclick="(quiz[show_page] != null ? 'ym(88151664,\'reachGoal\',\'Переход на форму\')' : '')" @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>
-      </div>
-    </div>
-
-    <div class="page" v-if="show_page === 7">
-      <div class="wrapper_quiz final">
-        <p class="header">Куда отправить расчет условий получения выгодного кредита?</p>
-<!--        <p class="subheader">Введите ваш номер телефона и получите <b>бесплатную</b> консультацию от специалиста по кредитованию</p>-->
-<!--        <p><i>Введите ваш номер телефона и получите бесплатную консультацию от специалиста по кредитованию</i></p>-->
-        <p class="form_error" v-if="error !== null">{{error}}</p>
-        <p class="label">Ваш телефон:</p>
-        <input type="text" v-model="form.phone" v-maska="'+375(##)###-##-##'" placeholder="+375(__)___-__-__" :style="'border: 3px solid '+this.color">
-<!--        <p><i>* специалист задаст дополнительные вопросы и предложит оптимальные варианты кредитования.</i></p>-->
-        <p class="remark_form"><i>* на основании ответов мы подберем подходящие варианты и отправим варианты и условия для получения кредита</i></p>
-        <div class="lock-block">
-          <div class="lock">
-            <svg width="17" height="21" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.8332 10.4999C16.8332 9.35096 15.8988 8.41659 14.7498 8.41659H13.7082V5.29159C13.7082 2.41971 11.3717 0.083252 8.49984 0.083252C5.62796 0.083252 3.2915 2.41971 3.2915 5.29159V8.41659H2.24984C1.10088 8.41659 0.166504 9.35096 0.166504 10.4999V18.8333C0.166504 19.9822 1.10088 20.9166 2.24984 20.9166H14.7498C15.8988 20.9166 16.8332 19.9822 16.8332 18.8333V10.4999ZM5.37484 5.29159C5.37484 3.56867 6.77692 2.16659 8.49984 2.16659C10.2228 2.16659 11.6248 3.56867 11.6248 5.29159V8.41659H5.37484V5.29159Z" fill="#03A626"></path>
-            </svg>
-            <p>
-              Все данные защищены
-            </p>
-          </div>
-        </div>
-
-
-        <button class="next sendForm" :onclick="((form.phone).length === 17 ? 'ym(88151664,\'reachGoal\',\'Отправка формы\')' : '')" @click="(form.phone).length === 17 ? sendForm() : make_error();">ПОДОБРАТЬ КРЕДИТ</button>
-
-      </div>
-    </div>
-
-
-    <div class="page" v-if="show_page === 8">
-      <div class="wrapper_quiz ">
-        <b>Ваша заявка успешна отправлена, в ближайшее время с вами свяжется наш менеджер</b>
-
-      </div>
-    </div>
-
-
-
-
-
 
   </div>
-
 </template>
 
 <script>
@@ -185,7 +75,9 @@ import belarusbank from '../components/banki/belarusbank';
 import bankdabrabyt from '../components/banki/bankdabrabyt';
 import bankhelp from '../components/banki/bankhelp';
 import creditbest from "@/components/banki/creditbest.by";
-import interviewForm from "@/components/interview-form";
+import interviewForm from "@/components/quiz/interview-form";
+import wrapper_quiz_final from "@/components/quiz/wrapper_quiz_final";
+import ThankYouPage from "@/components/quiz/thank-you-page";
 
 
 export default {
@@ -198,6 +90,51 @@ export default {
       color: 'white',
       show_popup: false,
       show_page: 0,
+      questions: [
+        {
+          question: 'Какая сумма нужна?',
+          variants: [
+            {id: 1, name:'до 1000 BYN'},
+            {id: 2, name:'до 5000 BYN'},
+            {id: 3, name:'до 15000 BYN'},
+            {id: 4, name:'более 15000 BYN'}
+          ]
+        },
+        {
+          question: 'На какой срок?',
+          variants: [
+            {id: 1, name:'до 1 года'},
+            {id: 2, name:'от 1 года до 2 лет'},
+            {id: 3, name:'от 2 до 3 лет'},
+            {id: 4, name:'от 3 до 5 лет'},
+            {id: 5, name:'более 5 лет'}
+          ]
+        },
+        {
+          question: 'Цель кредита?',
+          variants: [
+            {id: 1, name:'потребительский кредит'}, {id: 2, name:'рефинансирование текущего кредита'}, {id: 3, name:'авто'}, {id: 4, name:'на рефинансирование'}, {id: 5, name:'другое'}
+          ]
+        },
+        {
+          question: 'Работаете ли вы сейчас?',
+          variants: [
+            {id: 1, name:'да, более 3 месяцев'}, {id: 2, name:'да, менее 3 месяцев'}, {id: 3, name:'нет'}, {id: 4, name:'пенсионер / студент'}, {id: 5, name:'в декрете'}, {id: 6, name:'предприниматель'}
+          ]
+        },
+        {
+          question: 'Есть ли у вас сейчас непогашенные задолженности по кредитам?',
+          variants: [
+            {id: 1, name:'Да'}, {id: 2, name:'Нет'}
+          ]
+        },
+        {
+          question: 'Где вы находитесь?',
+          variants: [
+            {id: 1, name:'Минск или Минская область'}, {id: 2, name:'Брест или Брестская область'}, {id: 3, name:'Витебск или Витебская область'}, {id: 4, name:'Гомель или Гомельская область'}, {id: 5, name:'Гродно или Гродненская область'}, {id: 6, name:'Могилев или Могилевская область'}
+          ]
+        }
+      ],
       quiz: {
         1: null,
         2: null,
@@ -213,13 +150,15 @@ export default {
   },
   directives: { maska },
   components: {
+    ThankYouPage,
     alfabank,
     mtbank,
     belarusbank,
     bankdabrabyt,
     bankhelp,
     creditbest,
-    interviewForm
+    interviewForm,
+    wrapper_quiz_final
   },
   mounted() {
     switch (window.location.pathname){
@@ -263,14 +202,16 @@ export default {
       }else{
         this.color = 'red';
       }
-
-
     },
     make_error(){
       this.error = 'Неверный номер телефона!';
     },
     changeResult(data){
       this.quiz[data.index] = data.id;
+    },
+    sendFormComponent(data){
+      this.form = data;
+      this.sendForm();
     }
   }
 
@@ -278,7 +219,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style >
 *{
   font-family: sans-serif;
 }

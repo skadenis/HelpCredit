@@ -1,30 +1,25 @@
 <template>
   <div class="wrapper_quiz">
     <p class="question">{{ data.question }}</p>
-    <p class="page_num">Вопрос {{ data.page_id }} из 6</p>
+    <p class="page_num">Вопрос {{ data.page_id + 1 }} из {{ data.all_pages_count}}</p>
     <div class="answers">
-      <div class="variant" @click="setResult(1)" :class="result === 1 ? 'active' : ''">до 1000 BYN</div>
-      <div class="variant" @click="setResult(2)" :class="result === 2 ? 'active' : ''">до 1000 BYN</div>
-      <div class="variant" @click="setResult(3)" :class="result === 3 ? 'active' : ''">до 1000 BYN</div>
-      <div class="variant" @click="setResult(4)" :class="result === 4 ? 'active' : ''">до 1000 BYN</div>
-
-      <!--      <div class="variant" @click="quiz[show_page] = 2;" :class="quiz[show_page] === 2 ? 'active' : ''">до 5000 BYN</div>-->
-<!--      <div class="variant" @click="quiz[show_page] = 3;" :class="quiz[show_page] === 3 ? 'active' : ''">до 15000 BYN</div>-->
-<!--      <div class="variant" @click="quiz[show_page] = 4;" :class="quiz[show_page] === 4 ? 'active' : ''">свыше 15000 BYN</div>-->
+      <div v-for="item in data.variants" :key="item.id" class="variant" @click="setResult(item.id)" :class="result === item.id ? 'active' : ''">
+        {{ item.name }}
+      </div>
     </div>
-<!--    <button class="next"  @click="quiz[show_page] === null ? '' : show_page++;" :class="quiz[show_page] === null ? 'disabled' : ''">Далее</button>-->
+    <button class="next"  @click="result === null ? '' : nextPage();" :class="result === null ? 'disabled' : ''">Далее</button>
   </div>
 </template>
 
 <script>
 export default {
   props: ['data', 'initialResult'],
-  mounted() {
-    console.log(this.data);
-  },
   methods: {
     setResult(id){
-      this.$emit('changeResult', {id, index: this.data.page_id});
+      this.$emit('changeResult', {id, index: this.data.page_id + 1});
+    },
+    nextPage(){
+      this.$emit('nextPage');
     }
   },
   watch: {
