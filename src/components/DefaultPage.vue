@@ -5,10 +5,10 @@
         <div v-if="site === 'help'" class="default-page">
           <div class="header">
             <div class="partners">
-              <img src="../assets/partners.svg" alt="логотип helpcredit.by">
+              <img src="../assets/partners.svg" alt="логотип">
             </div>
             <div class="logo">
-              <img src="../assets/logo-helpcredit.svg" alt="логотип helpcredit.by">
+              <img src="../assets/logo-helpcredit.svg" alt="логотип">
             </div>
 
             <div class="today_credit_block">
@@ -85,7 +85,7 @@ export default {
     return {
       amount: 146378,
       formStatus: false,
-      site: 'best',
+      site: 'help',
       error: null,
       color: 'white',
       show_popup: false,
@@ -302,6 +302,8 @@ button.back{
 }
 
 .wrapper_quiz button{
+  padding: 0;
+  left: 0;
   background-image: -webkit-linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
   background-image: -ms-linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
   background-image: -moz-linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
@@ -591,6 +593,7 @@ button.sendForm{
 
 .home_page.help{
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/src/assets/bg.png');
+  background-size: cover;
 }
 
 
