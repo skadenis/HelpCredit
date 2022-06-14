@@ -144,7 +144,14 @@ export default {
         6: null,
       },
       form: {
-        phone: ''
+        phone: '',
+        utm: {
+          utm_campaign: "",
+          utm_content: "",
+          utm_medium: "",
+          utm_source: "",
+          utm_term: ""
+        }
       }
     }
   },
@@ -161,6 +168,24 @@ export default {
     wrapper_quiz_final
   },
   mounted() {
+    let uri = window.location.href.split('?');
+    if (uri.length === 2) {
+      let vars = uri[1].split('&');
+      let getVars = {};
+      let tmp = '';
+      vars.forEach(function (v) {
+        tmp = v.split('=');
+        if (tmp.length === 2)
+          getVars[tmp[0]] = tmp[1];
+      });
+
+      this.form.utm.utm_campaign = getVars.utm_campaign;
+      this.form.utm.utm_content = getVars.utm_content;
+      this.form.utm.utm_medium = getVars.utm_medium;
+      this.form.utm.utm_source = getVars.utm_source;
+      this.form.utm.utm_term = getVars.utm_term;
+    }
+
     switch (window.location.pathname){
       case '/thank-you':
         this.show_page = 8
@@ -210,7 +235,7 @@ export default {
       this.quiz[data.index] = data.id;
     },
     sendFormComponent(data){
-      this.form = data;
+      this.form.phone = data.phone;
       this.sendForm();
     }
   }
