@@ -1,26 +1,28 @@
 <template>
-  <div class="best-wrapper">
-    <div>
-      <div class="image_partners">
-        <img src="@/assets/partners.svg" alt="" class="partners" />
+  <div>
+    <div class="best-wrapper">
+      <div>
+        <div class="image_partners">
+          <img src="@/assets/partners.svg" alt="" class="partners" />
+        </div>
+        <span class="header"
+          >ПРОЙДИТЕ ТЕСТ И МЫ НАЙДЕМ КРЕДИТ,<br />
+          КОТОРЫЙ
+          <span class="pro-red">ВЫ ТОЧНО ПОЛУЧИТЕ</span></span
+        >
       </div>
-      <span class="header"
-        >ПРОЙДИТЕ ТЕСТ И МЫ НАЙДЕМ КРЕДИТ,<br />
-        КОТОРЫЙ
-        <span class="pro-red">ВЫ ТОЧНО ПОЛУЧИТЕ</span></span
-      >
+      <div class="button-padding-position">
+        <p class="analis">Проанализируем более 200 банковских предложений.</p>
+        <button @click="$emit('someEvent')" class="btn-red">
+          ПОЛУЧИТЬ КРЕДИТ
+        </button>
+        <p class="rasschet">
+          + расчет % одобрения кредита после прохождения теста
+        </p>
+      </div>
     </div>
-    <div class="button-padding-position">
-      <p class="analis">Проанализируем более 200 банковских предложений.</p>
-      <button @click="$emit('someEvent')" class="btn-red">
-        ПОЛУЧИТЬ КРЕДИТ
-      </button>
-      <p class="rasschet">
-        + расчет % одобрения кредита после прохождения теста
-      </p>
-    </div>
+    <disclamer siteName="CreditBest.by" />
   </div>
-  <disclamer siteName="CreditBest.by" />
 </template>
 
 <script>
@@ -40,6 +42,7 @@ export default {
 }
 
 .best-wrapper {
+  min-height: 100vh;
   padding: 0 50px;
   height: 100%;
 }
@@ -152,6 +155,9 @@ export default {
   .image_partners .partners {
     max-width: none;
     max-height: none;
+
+    width: calc(376px + 5%);
+    height: calc(142px + 5%);
   }
   .header {
     font-size: 42px;
@@ -229,6 +235,11 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     padding: 0 15px;
+  }
+
+  .header {
+    font-size: 24px;
+    line-height: 30px;
   }
 
   .btn-red {

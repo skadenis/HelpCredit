@@ -49,9 +49,4 @@ export default {
 };
 </script>
 
-<style scoped>
-footer {
-  background: #fff;
-  width: 100%;
-}
-</style>
+<style scoped></style>

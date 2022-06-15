@@ -348,6 +348,7 @@ button.back {
   /*background-image: url('//b-allcredit.by/assets/image/bg2.jpg');*/
   background-image: url("//creditonline.by/assets/image/main-fon.jpg");
   background-size: cover !important;
+
   background-position: center !important;
 }
 
