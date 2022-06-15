@@ -76,7 +76,7 @@ import ThankYouPage from "@/components/quiz/thank-you-page";
 export default {
   data() {
     return {
-      site: "help",
+      site: "best",
       error: null,
       color: "white",
       show_popup: false,
