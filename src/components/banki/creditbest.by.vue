@@ -20,11 +20,17 @@
       </p>
     </div>
   </div>
+  <disclamer siteName="CreditBest.by" />
 </template>
 
 <script>
+import disclamer from "@/components/quiz/disclamer.vue";
+
 export default {
   name: "credit-best",
+  components: {
+    disclamer,
+  },
 };
 </script>
 
@@ -36,9 +42,6 @@ export default {
 .best-wrapper {
   padding: 0 50px;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .image_partners .partners {
@@ -50,7 +53,7 @@ export default {
 .header {
   margin: 30px 0 15px 0;
   line-height: 42px;
-  font-size: 35px;
+  font-size: 32px;
   font-weight: bold;
   display: block;
   color: #fff;
@@ -66,11 +69,12 @@ export default {
   position: static;
   bottom: 0;
   z-index: 1;
-  padding-bottom: 60px;
+  margin-bottom: 20px;
+  margin-top: 18%;
 }
 
 .button-padding-position .analis {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   color: rgb(40, 40, 40);
   padding: 0;
@@ -80,7 +84,7 @@ export default {
 }
 
 .button-padding-position .rasschet {
-  font-size: 16px;
+  font-size: 14px;
   color: #d4253e;
   font-weight: bold;
   transform: translateX(-100%);
@@ -94,7 +98,7 @@ export default {
 }
 
 .btn-red {
-  min-width: 320px;
+  min-width: 420px;
   width: 30%;
   margin: 0;
   font-size: 25px;
@@ -139,7 +143,42 @@ export default {
   background: #930c0c;
 }
 
-@media (max-width: 950px) {
+/* от 1200*/
+@media screen and (min-width: 1200px) {
+  .best-wrapper {
+    padding: 20px 100px;
+  }
+
+  .image_partners .partners {
+    max-width: none;
+    max-height: none;
+  }
+  .header {
+    font-size: 42px;
+    line-height: 48px;
+  }
+
+  .button-padding-position .analis {
+    font-size: 28px;
+  }
+
+  .button-padding-position .rasschet {
+    font-size: 22px;
+  }
+}
+
+/* от 1000 до 1200 */
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+}
+
+/* от 800 до 1000 */
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+  .best-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   .header {
     font-size: 28px;
     line-height: 35px;
@@ -160,22 +199,51 @@ export default {
   }
 }
 
-/* от 1200 до 1400 */
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-}
-
-/* от 1000 до 1200 */
-@media screen and (min-width: 1000px) and (max-width: 1200px) {
-}
-
-/* от 800 до 1000 */
-@media screen and (min-width: 800px) and (max-width: 1000px) {
-}
-
-/* от 800 до 1000 */
+/* от 600 до 800 */
 @media screen and (min-width: 600px) and (max-width: 800px) {
+  .best-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+
+  .btn-red {
+    width: 100%;
+  }
+
+  .button-padding-position .analis {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .button-padding-position .rasschet {
+    text-align: center;
+    font-size: 12px;
+  }
 }
 
 @media screen and (max-width: 600px) {
+  .best-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+
+  .btn-red {
+    width: calc(100% - 30px);
+    min-width: 250px;
+  }
+
+  .button-padding-position .analis {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .button-padding-position .rasschet {
+    text-align: center;
+    font-size: 12px;
+  }
 }
 </style>

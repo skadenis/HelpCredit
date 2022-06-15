@@ -3,35 +3,7 @@
     <div class="page home_page" :class="site" v-if="show_page === 0">
       <div>
         <div v-if="site === 'help'" class="default-page">
-          <div class="header">
-            <div class="partners">
-              <img src="../assets/partners.svg" alt="логотип" />
-            </div>
-            <div class="logo">
-              <img src="../assets/logo-helpcredit.svg" alt="логотип" />
-            </div>
-
-            <div class="today_credit_block">
-              <p class="today_credit">Cегодня одобрено кредитов на:</p>
-              <p class="today_credit_amount">{{ formatter(amount) }}</p>
-            </div>
-          </div>
-          <div class="content" v-if="!formStatus">
-            <h1>ПРОЙДИ ТЕСТ И ПОЛУЧИ КРЕДИТ ОТ БАНКА С 98% ШАНСОМ</h1>
-            <h3>
-              На основании ответов мы подберем выгодный кредит из 23 банков
-              Беларуси и поможем получить деньги
-            </h3>
-            <div>
-              <button @click="show_page++">НАЧАТЬ ТЕСТ</button>
-            </div>
-          </div>
-          <div class="content" v-else>
-            <h1>
-              Ваша заявка сформированна, ожидайте с вами свяжуться в ближайшее
-              время
-            </h1>
-          </div>
+          <helpcredit @some-event="this.show_page++"></helpcredit>
         </div>
         <div v-if="site === 'best'" class="main creditbest">
           <creditbest @some-event="this.show_page++"></creditbest>
@@ -96,6 +68,7 @@ import belarusbank from "../components/banki/belarusbank";
 import bankdabrabyt from "../components/banki/bankdabrabyt";
 import bankhelp from "../components/banki/bankhelp";
 import creditbest from "@/components/banki/creditbest.by";
+import helpcredit from "../components/banki/helpcredit.vue";
 import interviewForm from "@/components/quiz/interview-form";
 import wrapper_quiz_final from "@/components/quiz/wrapper_quiz_final";
 import ThankYouPage from "@/components/quiz/thank-you-page";
@@ -103,8 +76,6 @@ import ThankYouPage from "@/components/quiz/thank-you-page";
 export default {
   data() {
     return {
-      amount: 146378,
-      formStatus: false,
       site: "best",
       error: null,
       color: "white",
@@ -202,6 +173,7 @@ export default {
     creditbest,
     interviewForm,
     wrapper_quiz_final,
+    helpcredit,
   },
   mounted() {
     let uri = window.location.href.split("?");
@@ -224,12 +196,10 @@ export default {
     switch (window.location.pathname) {
       case "/thank-you":
         this.show_page = 8;
-        this.formStatus = true;
         break;
       default:
         this.show_page = 0;
         this.error = null;
-        this.formStatus = false;
         break;
     }
   },
@@ -242,12 +212,7 @@ export default {
       let rand = min - 0.5 + Math.random() * (max - min + 1);
       return Math.round(rand);
     },
-    formatter: function (param) {
-      return new Intl.NumberFormat("BY", {
-        style: "currency",
-        currency: "BYN",
-      }).format(param);
-    },
+
     sendForm() {
       if (this.form.phone.length === 17) {
         let data = this.form;
@@ -255,9 +220,7 @@ export default {
         Basic.sendLead(data).then(function () {
           window.location.href = "/thank-you";
         });
-        // this.formStatus = true;
         this.show_page++;
-        // this.show_popup = false;
       } else {
         this.color = "red";
       }
@@ -377,12 +340,6 @@ button.back {
   opacity: 0;
 }
 
-.disclamer {
-  background: #fff;
-  position: relative;
-  padding: 15px;
-}
-
 .home_page.best {
   min-width: 100%;
   width: 100%;
@@ -394,7 +351,7 @@ button.back {
   background-position: center !important;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1000px) {
   .home_page.best {
     background: url(//creditonline.by/assets/image/mobil-fon.jpg) no-repeat;
     overflow: auto;
@@ -411,12 +368,12 @@ button.back {
 }
 .home_page .main button {
   min-height: 60px;
+  padding: 20px;
   font-family: "Nunito", sans-serif;
   text-transform: uppercase;
   letter-spacing: 1.3px;
   font-weight: 700;
   color: #fff;
-  background: #4fd1c5;
   background: linear-gradient(90deg, #ac1714 0%, #e20f39 100%);
   border: none;
   border-radius: 1000px;
@@ -433,15 +390,7 @@ button.back {
   max-width: 100%;
 }
 
-.home_page .disclamer {
-  background: #ffff;
-  z-index: 9999;
-}
-
 .home_page > div {
-  width: calc(100% - 30px);
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
