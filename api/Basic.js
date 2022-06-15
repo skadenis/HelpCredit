@@ -8,4 +8,3 @@ class Basic extends BaseApi {
 }
 
 export default new Basic();
-Tut;
