@@ -54,7 +54,7 @@ export default {
 }
 
 .header {
-  margin: 30px 0 15px 0;
+  margin: 1px 0 10px 0;
   line-height: 42px;
   font-size: 32px;
   font-weight: bold;
