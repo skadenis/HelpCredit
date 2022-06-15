@@ -17,8 +17,8 @@
       <div class="content">
         <h1>ПРОЙДИ ТЕСТ И ПОЛУЧИ КРЕДИТ ОТ БАНКА С 98% ШАНСОМ</h1>
         <h3>
-          На основании ответов мы подберем выгодный кредит из 23 банков Беларуси и
-          поможем получить деньги
+          На основании ответов мы подберем выгодный кредит из 23 банков Беларуси
+          и поможем получить деньги
         </h3>
         <div>
           <button @click="$emit('someEvent')">НАЧАТЬ ТЕСТ</button>
@@ -54,11 +54,8 @@ export default {
 };
 </script>
 
-<<<<<<< HEAD
-<style scoped></style>
-=======
 <style scoped>
-.helpcredit_content{
+.helpcredit_content {
   min-height: 100vh;
 }
 footer {
@@ -66,4 +63,3 @@ footer {
   width: 100%;
 }
 </style>
->>>>>>> 25805723c82d9c968ca82418112a24845e62678f
