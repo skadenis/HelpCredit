@@ -249,14 +249,16 @@ button.back {
   display: none;
 }
 .page {
+  min-width: 320px;
   width: 100%;
   height: 100%;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
   background: #f1f1f1;
-  overflow: auto;
+  /* overflow: auto; */
 }
+
 .wrapper_quiz {
   max-width: 600px;
   width: calc(100% - 50px);
@@ -355,7 +357,6 @@ button.back {
 @media (max-width: 1000px) {
   .home_page.best {
     background: url(//creditonline.by/assets/image/mobil-fon.jpg) no-repeat;
-    overflow: auto;
   }
 }
 
@@ -414,10 +415,7 @@ button.back {
   flex-direction: column;
   color: #fff;
 }
-.header {
-  margin: 15px 25px;
-  display: flex;
-}
+
 .header > div {
   width: 100%;
 }

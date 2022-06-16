@@ -48,13 +48,13 @@ export default {
 }
 
 .image_partners .partners {
-  padding: 30px 0;
+  margin: 30px 0;
   max-width: 500px;
   max-height: 49px;
 }
 
 .header {
-  margin: 1px 0 10px 0;
+  margin-bottom: 10px;
   line-height: 42px;
   font-size: 32px;
   font-weight: bold;
@@ -146,10 +146,10 @@ export default {
   background: #930c0c;
 }
 
-/* от 1200*/
-@media screen and (min-width: 1200px) {
+/* от 1400*/
+@media screen and (min-width: 1400px) {
   .best-wrapper {
-    padding: 20px 100px;
+    padding: 20px 150px;
   }
 
   .image_partners .partners {
@@ -159,6 +159,7 @@ export default {
     width: calc(376px + 5%);
     height: calc(142px + 5%);
   }
+
   .header {
     font-size: 42px;
     line-height: 48px;
@@ -173,6 +174,18 @@ export default {
   }
 }
 
+/* от 1200 до 1400*/
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+  .best-wrapper {
+    padding: 20px 100px;
+  }
+
+  .header {
+    font-size: 37px;
+    line-height: 50px;
+  }
+}
+
 /* от 1000 до 1200 */
 @media screen and (min-width: 1000px) and (max-width: 1200px) {
 }
@@ -183,6 +196,12 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  .image_partners .partners {
+    margin: 15px 0;
+    max-width: 500px;
+    max-height: 49px;
   }
 
   .header {
@@ -214,6 +233,12 @@ export default {
     padding: 0 15px;
   }
 
+  .image_partners .partners {
+    margin: 15px 0;
+    max-width: 500px;
+    max-height: 49px;
+  }
+
   .btn-red {
     width: 100%;
   }
@@ -235,6 +260,12 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     padding: 0 15px;
+  }
+
+  .image_partners .partners {
+    margin: 15px 0;
+    max-width: 500px;
+    max-height: 49px;
   }
 
   .header {

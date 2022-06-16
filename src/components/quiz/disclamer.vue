@@ -40,27 +40,33 @@ footer {
   width: 100%;
 }
 .disclamer {
-  padding-top: 20px;
+  padding-top: 15px;
   padding-bottom: 20px;
   margin: 0 100px;
   color: black;
   text-align: justify;
+
+  font-size: 16px;
 }
 
 /* от 600 до 800 */
 @media screen and (min-width: 600px) and (max-width: 800px) {
   .disclamer {
-    padding-top: 20px;
+    padding-top: 15px;
     padding-bottom: 20px;
     margin: 0 15px;
+
+    font-size: 14px;
   }
 }
 
 @media screen and (max-width: 600px) {
   .disclamer {
-    padding-top: 20px;
+    padding-top: 15px;
     padding-bottom: 20px;
     margin: 0 15px;
+
+    font-size: 14px;
   }
 }
 </style>

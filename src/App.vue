@@ -1,20 +1,22 @@
 <template>
-  <DefaultPage/>
+  <DefaultPage />
 </template>
 
 <script>
-import DefaultPage from './components/DefaultPage.vue'
+import DefaultPage from "./components/DefaultPage.vue";
 
 export default {
   components: {
-    DefaultPage
-  }
-}
+    DefaultPage,
+  },
+};
 </script>
 
 <style>
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
+  min-width: 320px;
 }
 </style>
