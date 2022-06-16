@@ -69,11 +69,8 @@ export default {
 }
 
 .button-padding-position {
-  position: static;
-  bottom: 0;
-  z-index: 1;
-  margin-bottom: 20px;
   margin-top: 18%;
+  margin-bottom: 10px;
 }
 
 .button-padding-position .analis {
@@ -212,15 +209,18 @@ export default {
   .button-padding-position .analis {
     text-align: center;
     font-size: 16px;
+    margin: 0 0 20px 0;
   }
 
   .button-padding-position .rasschet {
     text-align: center;
     font-size: 12px;
+    margin: 0;
   }
 
   .btn-red {
-    width: 100%;
+    width: calc(100% - 30px);
+    min-width: 250px;
   }
 }
 
@@ -240,17 +240,20 @@ export default {
   }
 
   .btn-red {
-    width: 100%;
+    width: calc(100% - 30px);
+    min-width: 250px;
   }
 
   .button-padding-position .analis {
     text-align: center;
     font-size: 16px;
+    margin: 0 0 20px 0;
   }
 
   .button-padding-position .rasschet {
     text-align: center;
     font-size: 12px;
+    margin: 0;
   }
 }
 
@@ -276,16 +279,19 @@ export default {
   .btn-red {
     width: calc(100% - 30px);
     min-width: 250px;
+    font-size: 12px;
   }
 
   .button-padding-position .analis {
     text-align: center;
     font-size: 16px;
+    margin: 0 0 20px 0;
   }
 
   .button-padding-position .rasschet {
     text-align: center;
     font-size: 12px;
+    margin: 0;
   }
 }
 </style>

@@ -702,6 +702,12 @@ button.back {
 }
 
 @media screen and (max-width: 600px) {
+  .home_page .main button {
+    letter-spacing: 1px;
+    padding: 10px;
+    font-size: 22px;
+  }
+
   .header {
     flex-flow: column-reverse;
     width: calc(100% - 50px);
