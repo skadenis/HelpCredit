@@ -24,13 +24,13 @@
           </div>
           <p class="date">
             Пройдите тест и получите самое <br />
-            выгодное предложение на {{ date }}
+            выгодное предложение на {{ today }}
           </p>
         </div>
       </div>
       <partnerslogo />
     </div>
-    <disclamer siteName="CreditCentr.by" />
+    <disclamer siteName="BankHelp.by" />
   </div>
 </template>
 
@@ -44,8 +44,19 @@ export default {
     return {
       remainder: "9 кредитов",
       quantity: 37,
-      date: 20.06,
+      today: undefined,
     };
+  },
+  mounted() {
+    this.getDate();
+  },
+  methods: {
+    getDate() {
+      this.today = new Date();
+      let dd = String(this.today.getDate()).padStart(2, "0");
+      let mm = String(this.today.getMonth() + 1).padStart(2, "0");
+      this.today = dd + "." + mm;
+    },
   },
   components: {
     disclamer,
