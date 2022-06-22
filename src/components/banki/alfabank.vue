@@ -1,24 +1,26 @@
 <template>
   <div class="alfabank_main_page">
     <div>
-      <svg class="svg-icon main-logo"><use xlink:href="#alfabank_logo"></use></svg>
+      <svg class="svg-icon main-logo">
+        <use xlink:href="#alfabank_logo"></use>
+      </svg>
       <svg class="svg-icon logo-text"><use xlink:href="#logo_text"></use></svg>
     </div>
-    <h1>Пройди тест из 6 вопросов и получи прогноз получения кредита в Альфе</h1>
-    <button @click="$emit('someEvent')">
-        ПРОЙТИ ТЕСТ
-    </button>
+    <h1>
+      Пройди тест из 6 вопросов и получи прогноз получения кредита в Альфе
+    </h1>
+    <button @click="$emit('someEvent')">ПРОЙТИ ТЕСТ</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ALFA_Main',
-}
+  name: "ALFA_Main",
+};
 </script>
 
-<style>
-button{
+<style scoped>
+button {
   position: fixed;
   bottom: 15px;
   left: 15px;

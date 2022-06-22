@@ -20,6 +20,9 @@
         <div v-if="site === 'bankdabrabyt'" class="bankdabrabyt">
           <bankdabrabyt @some-event="this.show_page++"></bankdabrabyt>
         </div>
+        <div v-if="site === 'credit'" class="credit">
+          <credit @some-event="this.show_page++"></credit>
+        </div>
         <div v-if="site === 'bankhelp'" class="bankhelp">
           <bankhelp @some-event="this.show_page++"></bankhelp>
         </div>
@@ -67,6 +70,7 @@ import mtbank from "../components/banki/mtbank";
 import belarusbank from "../components/banki/belarusbank";
 import bankdabrabyt from "../components/banki/bankdabrabyt";
 import bankhelp from "../components/banki/bankhelp";
+import credit from "../components/banki/credit.vue";
 import creditbest from "@/components/banki/creditbest.by";
 import helpcredit from "../components/banki/helpcredit.vue";
 import interviewForm from "@/components/quiz/interview-form";
@@ -76,7 +80,7 @@ import ThankYouPage from "@/components/quiz/thank-you-page";
 export default {
   data() {
     return {
-      site: "best",
+      site: "bankhelp",
       error: null,
       color: "white",
       show_popup: false,
@@ -174,6 +178,7 @@ export default {
     interviewForm,
     wrapper_quiz_final,
     helpcredit,
+    credit,
   },
   mounted() {
     let uri = window.location.href.split("?");
@@ -416,7 +421,7 @@ button.back {
   color: #fff;
 }
 
-.header > div {
+/* .header > div {
   width: 100%;
 }
 .header .partners {
@@ -429,7 +434,7 @@ button.back {
 .header .logo img {
   margin: 0 auto;
   display: block;
-}
+} */
 
 .header .today_credit_block .today_credit {
   font-family: sans-serif;
@@ -565,13 +570,13 @@ button.back {
 
 /* от 1200 до 1400 */
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
-  .header {
+  /* .header {
     flex-flow: row-reverse;
   }
   .header .logo img {
     margin: 15px 0;
     height: 80px;
-  }
+  } */
   .today_credit_block {
     display: none;
   }
@@ -592,13 +597,13 @@ button.back {
 
 /* от 1000 до 1200 */
 @media screen and (min-width: 1000px) and (max-width: 1200px) {
-  .header {
+  /* .header {
     flex-flow: row-reverse;
   }
   .header .logo img {
     margin: 15px 0;
     height: 80px;
-  }
+  } */
   .today_credit_block {
     display: none;
   }
@@ -619,13 +624,13 @@ button.back {
 
 /* от 800 до 1000 */
 @media screen and (min-width: 800px) and (max-width: 1000px) {
-  .header {
+  /* .header {
     flex-flow: row-reverse;
   }
   .header .logo img {
     margin: 15px 0;
     height: 80px;
-  }
+  } */
   .today_credit_block {
     display: none;
   }
@@ -652,7 +657,7 @@ button.back {
 
 /* от 800 до 1000 */
 @media screen and (min-width: 600px) and (max-width: 800px) {
-  .header {
+  /* .header {
     flex-flow: row-reverse;
     max-width: 100%;
   }
@@ -662,7 +667,7 @@ button.back {
   }
   .header .logo img {
     margin: 15px 0;
-  }
+  } */
   .today_credit_block {
     display: none;
   }
@@ -708,7 +713,7 @@ button.back {
     font-size: 22px;
   }
 
-  .header {
+  /* .header {
     flex-flow: column-reverse;
     width: calc(100% - 50px);
     display: flex;
@@ -725,7 +730,7 @@ button.back {
   .header .logo img {
     margin: 15px 0;
     width: 75%;
-  }
+  } */
   .today_credit_block {
     display: none;
   }
