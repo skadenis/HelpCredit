@@ -1,47 +1,36 @@
 <template>
   <div>
     <div class="wrapper">
-      <div class="header-block">
-        <partnerslogo />
-        <span class="header"
-          ><span>20</span> банков готовы одобрить <br />кредит по сниженной
-          ставке</span
-        >
-      </div>
-      <div class="statistics">
-        <p>
-          {{ clients }}
-          <span
-            >благодарных<br />
-            клиента</span
+      <div class="wrapper-block">
+        <div>
+          <span class="header"
+            >Оформи любой кредит<br />
+            в Минске по ставке <br /><span
+              >от <span class="percent">12,9%</span></span
+            ></span
           >
-        </p>
-        <p>{{ approval }} <span>одобрения</span></p>
-        <p>
-          {{ rating }}
-          <span
-            >звезды средняя<br />
-            оценка сервиса</span
-          >
-        </p>
+        </div>
+        <div class="button-block">
+          <button @click="$emit('someEvent')" class="button">
+            Подобрать кредит
+          </button>
+          <div class="statistics">
+            <p>
+              Осталось всего <span>{{ remainder }}</span>
+            </p>
+            <p>
+              Сегодня одобрено <span>{{ quantity }}</span>
+            </p>
+          </div>
+          <p class="date">
+            Пройдите тест и получите самое <br />
+            выгодное предложение на {{ today }}
+          </p>
+        </div>
       </div>
-      <div class="button-block">
-        <button @click="$emit('someEvent')" class="button">Начать тест</button>
-        <p>Пройди тест и получи кредит от банка с 98% шансом</p>
-      </div>
+      <partnerslogo />
     </div>
-    <div class="statistics-bottom">
-      <p>
-        {{ clients }}
-        <span>благодарных клиента</span>
-      </p>
-      <p>{{ approval }} <span>одобрения</span></p>
-      <p>
-        {{ rating }}
-        <span>звезды средняя оценка сервиса</span>
-      </p>
-    </div>
-    <disclamer siteName="CreditCentr.by" />
+    <disclamer siteName="BankHelp.by" />
   </div>
 </template>
 
@@ -50,13 +39,24 @@ import disclamer from "@/components/quiz/disclamer.vue";
 import partnerslogo from "@/components/banki/partnerslogo.vue";
 
 export default {
-  name: "credit-centr",
+  name: "bank-help",
   data() {
     return {
-      clients: 10315,
-      approval: "92,7%",
-      rating: "4,8",
+      remainder: "9 кредитов",
+      quantity: 37,
+      today: undefined,
     };
+  },
+  mounted() {
+    this.getDate();
+  },
+  methods: {
+    getDate() {
+      this.today = new Date();
+      let dd = String(this.today.getDate()).padStart(2, "0");
+      let mm = String(this.today.getMonth() + 1).padStart(2, "0");
+      this.today = dd + "." + mm;
+    },
   },
   components: {
     disclamer,
@@ -67,10 +67,8 @@ export default {
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
-
 * {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .wrapper {
@@ -80,103 +78,69 @@ export default {
   justify-content: space-between;
   min-height: 100vh;
 
-  padding: 40px 75px 50px 75px;
+  padding: 75px 100px 25px 100px;
 
-  background-color: #fff;
-  background-image: url(../../assets/creditcentr.jpg);
+  background-color: rgb(80, 120, 180);
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent),
+    url(../../assets/creditcentr_bg.jpg);
   background-size: cover;
-  background-position: top;
+  background-position: center;
+}
+
+.wrapper-block {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* margin-bottom: 20px; */
 }
 
 .header {
-  margin-top: 50px;
   display: block;
 
   font-size: 46px;
   font-weight: 900;
-  color: #000;
+  color: rgb(255, 255, 255);
   line-height: 55.67px;
-
-  text-shadow: 0px 0px 24px rgba(225, 225, 225, 0.7);
+  margin-bottom: 50px;
 }
 
 .header span {
-  color: rgba(0, 194, 89, 1);
-  font-size: 1.2em;
+  font-size: 76.47px;
+  line-height: 93.2px;
 }
 
-.statistics {
-  margin: 50px 0;
-  display: flex;
-  padding: 15px 0;
-  justify-content: space-between;
-  align-items: center;
-  width: 646px;
-  background-color: #fff;
-  border: 1px solid #ececec;
-  border-radius: 10px;
-}
-
-.statistics p {
-  padding: 0 15px;
-  width: 33%;
-  margin-block: 0;
-  display: flex;
-  align-items: center;
-  font-family: "Montserrat", sans-serif;
-  color: rgba(0, 194, 89, 1);
-  font-weight: 900;
-  font-size: 28px;
-  line-height: 34.13px;
-}
-
-.statistics p:nth-child(2) {
-  border-left: 1px solid rgba(236, 236, 236, 1);
-  border-right: 1px solid rgba(236, 236, 236, 1);
-}
-
-.statistics p span {
-  margin-left: 12px;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  line-height: 16.8px;
-  font-weight: 400;
-  color: rgba(57, 57, 57, 1);
+.header .percent {
+  font-size: 109.72px;
+  line-height: 133.75px;
+  color: rgba(255, 220, 98, 1);
+  text-shadow: 0px 0px 24px rgba(255, 220, 98, 0.25);
 }
 
 .button-block {
-  margin-top: 20px;
-  width: 317px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.button-block p {
-  font-size: 12px;
-  line-height: 16.8px;
-  color: rgba(120, 120, 120, 1);
-  text-align: center;
+  display: grid;
+  grid-template-areas:
+    "button statistics"
+    "date date";
+  grid-template-rows: 81px 1fr;
+  grid-template-columns: 309px 1fr;
+  column-gap: 30px;
+  row-gap: 20px;
 }
 
 .button {
-  margin-bottom: 34px;
-  width: 283px;
-  height: 73px;
+  grid-area: button;
+  width: 309px;
+  height: 81px;
 
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
   color: rgb(255, 255, 255);
 
+  border-radius: 10px;
   border: none;
-  background: linear-gradient(
-      180deg,
-      rgba(132, 235, 155, 0.6) 5.48%,
-      rgba(30, 184, 64, 0.6) 96.58%
-    ),
-    #1eb940;
-  box-shadow: 0px 22px 25px -15px rgba(0, 194, 89, 0.4);
-  border-radius: 4px;
+  background-color: rgba(0, 194, 89, 1);
+  box-shadow: 0px 22px 25px -15px rgba(0, 194, 89, 0.55);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -185,183 +149,171 @@ export default {
   transform: scale(105%);
 }
 
-.statistics-bottom {
-  background-color: #fff;
-  display: none;
-}
-.statistics-bottom p {
-  margin: 0 50px;
-  margin-block: 0;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  height: 100px;
-  font-family: "Montserrat", sans-serif;
-  color: rgba(0, 194, 89, 1);
-  font-weight: 900;
-  font-size: 28px;
-  line-height: 34.13px;
+.statistics,
+.date {
+  font-size: 16px;
+  color: #dfdfdf;
 }
 
-.statistics-bottom p:nth-child(2) {
-  border-top: 1px solid rgba(236, 236, 236, 1);
-  border-bottom: 1px solid rgba(236, 236, 236, 1);
+.statistics {
+  grid-area: statistics;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.statistics-bottom p span {
-  margin-top: 6px;
+
+.statistics p {
   display: block;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  line-height: 16.8px;
-  font-weight: 400;
-  color: rgba(57, 57, 57, 1);
+  margin-block: 0;
+  line-height: 19.36px;
+}
+
+.statistics p:first-child {
+  margin-bottom: 10px;
+}
+
+.statistics p span {
+  color: #fff;
+}
+
+.date {
+  max-width: 309px;
+  grid-area: date;
+  margin-block: 0;
+  line-height: 22.4px;
+
+  text-align: center;
 }
 
 /* от 1600px */
 @media screen and (min-width: 1600px) {
   .wrapper {
-    display: block;
-    padding: 50px 150px 150px 150px;
+    padding: 200px 200px 25px 200px;
 
     background-size: cover;
   }
 
-  .button {
-    width: 339.6px;
-    height: 87.6px;
-
-    font-size: 22px;
-    font-weight: 700;
-    border-radius: 6px;
-  }
-
   .header {
-    margin: 150px 0;
-    font-size: 58px;
-  }
-
-  .statistics {
-    margin-bottom: 100px;
-    width: 846px;
-  }
-
-  .statistics p {
-    font-size: 36px;
-    line-height: 42.13px;
-  }
-
-  .statistics p span {
-    font-size: 18px;
-    line-height: 20.8px;
+    margin-bottom: 150px;
   }
 }
 
 /* от 600px до 800px*/
 @media screen and (min-width: 600px) and (max-width: 800px) {
   .wrapper {
-    padding: 20px 50px 40px 50px;
+    padding: 0 50px 0 50px;
 
-    background-image: url(../../assets/creditcentr_mobile_bg.jpg);
-    background-position: top;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent),
+      url(../../assets/creditcentr_bg_mobile.jpg);
+  }
+
+  .wrapper-block {
+    padding-top: 100px;
+    padding-bottom: 150px;
+    min-height: 100vh;
   }
 
   .header {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 900;
 
     line-height: 39.1px;
-    text-shadow: none;
+
+    margin-bottom: 100px;
   }
 
   .header span {
-    text-shadow: 0px 0px 24px rgbargba(0, 79, 37, 0.7);
+    font-size: 35px;
+    line-height: 41.57px;
+    margin-top: 15px;
   }
 
-  .header-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 75vh;
-  }
-
-  .button-block p {
-    color: rgb(73, 73, 73);
-  }
-
-  .statistics {
-    display: none;
-  }
-
-  .button {
-    margin-bottom: 16px;
-  }
-
-  .statistics-bottom {
-    display: block;
+  .header .percent {
+    font-size: 95px;
+    line-height: 114.71px;
+    margin-top: 0;
   }
 }
 
 /* меньше 600px */
 @media screen and (max-width: 600px) {
   .wrapper {
-    padding: 20px 15px 40px 15px;
-    background-image: url(../../assets/creditcentr_mobile_bg.jpg);
-    background-position: bottom;
+    padding: 0 15px 0 15px;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent),
+      url(../../assets/creditcentr_bg_mobile.jpg);
   }
 
-  .header-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 75vh;
+  .wrapper-block {
+    padding-top: 70px;
+    min-height: 100vh;
+    padding-bottom: 50px;
   }
 
   .header {
-    font-size: 25px;
+    font-size: 29px;
     font-weight: 900;
-    line-height: 28.84px;
+    line-height: 35.1px;
     text-align: center;
-    text-shadow: none;
   }
+
   .header span {
-    text-shadow: 0px 0px 24px rgba(0, 79, 37, 0.7);
-  }
-  .button-block p {
-    color: rgb(73, 73, 73);
-  }
-
-  .statistics {
-    display: none;
-  }
-
-  .button {
-    margin-bottom: 16px;
-  }
-
-  .statistics-bottom {
     display: block;
+    font-size: 30px;
+    line-height: 36.57px;
+    margin-top: 15px;
   }
 
-  .statistics-bottom p {
-    margin: 0 15px;
+  .header .percent {
+    font-size: 90px;
+    line-height: 109.71px;
+    margin-top: 0;
   }
 
   .button-block {
     width: 100%;
+    grid-template-areas:
+      "date date"
+      "button button"
+      "statistics statistics";
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+
+  .button {
+    margin: 0 auto;
+  }
+
+  .statistics {
+    grid-area: statistics;
+    width: 100%;
+
+    align-items: center;
+  }
+
+  .statistics p:first-child {
+    margin-bottom: 10px;
+  }
+
+  .statistics p span {
+    color: #fff;
+  }
+
+  .date {
+    margin: 0 auto;
+    grid-area: date;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19.6px;
+
+    text-align: center;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .header {
-    font-size: 23px;
-
-    line-height: 27.84px;
-  }
-
-  .button-block p {
-    font-size: 10px;
-    line-height: 12.8px;
+  .button {
+    width: calc(100% - 15px);
   }
 }
 </style>

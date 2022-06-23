@@ -63,7 +63,7 @@ footer {
   padding: 40px 0;
 }
 .disclamer {
-  margin: 0 80px;
+  margin: 0 100px;
   color: black;
 
   font-size: 10px;
@@ -89,16 +89,9 @@ ul {
 }
 
 @media screen and (max-width: 800px) {
-  footer {
-    padding: 20px 0 20px 0;
-  }
   .disclamer {
-    margin: 0 50px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .disclamer {
+    padding-top: 15px;
+    padding-bottom: 20px;
     margin: 0 15px;
   }
 }
