@@ -189,6 +189,8 @@ export default {
 @media screen and (min-width: 1600px) {
   .wrapper {
     padding: 200px 200px 25px 200px;
+
+    background-size: cover;
   }
 
   .header {
@@ -200,6 +202,9 @@ export default {
 @media screen and (min-width: 600px) and (max-width: 800px) {
   .wrapper {
     padding: 0 50px 0 50px;
+
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent),
+      url(../../assets/creditcentr_bg_mobile.jpg);
   }
 
   .wrapper-block {
@@ -236,7 +241,6 @@ export default {
     padding: 0 15px 0 15px;
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent),
       url(../../assets/creditcentr_bg_mobile.jpg);
-    background-position: right;
   }
 
   .wrapper-block {

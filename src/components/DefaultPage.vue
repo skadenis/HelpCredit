@@ -20,8 +20,8 @@
         <div v-if="site === 'bankdabrabyt'" class="bankdabrabyt">
           <bankdabrabyt @some-event="this.show_page++"></bankdabrabyt>
         </div>
-        <div v-if="site === 'credit'" class="credit">
-          <credit @some-event="this.show_page++"></credit>
+        <div v-if="site === 'creditcentr'" class="creditcentr">
+          <creditcentr @some-event="this.show_page++"></creditcentr>
         </div>
         <div v-if="site === 'bankhelp'" class="bankhelp">
           <bankhelp @some-event="this.show_page++"></bankhelp>
@@ -70,7 +70,7 @@ import mtbank from "../components/banki/mtbank";
 import belarusbank from "../components/banki/belarusbank";
 import bankdabrabyt from "../components/banki/bankdabrabyt";
 import bankhelp from "../components/banki/bankhelp";
-import credit from "../components/banki/credit.vue";
+import creditcentr from "../components/banki/creditcentr.vue";
 import creditbest from "@/components/banki/creditbest.by";
 import helpcredit from "../components/banki/helpcredit.vue";
 import interviewForm from "@/components/quiz/interview-form";
@@ -178,7 +178,7 @@ export default {
     interviewForm,
     wrapper_quiz_final,
     helpcredit,
-    credit,
+    creditcentr,
   },
   mounted() {
     let uri = window.location.href.split("?");
