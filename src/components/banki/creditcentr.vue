@@ -181,8 +181,19 @@ export default {
   transition: all 0.2s ease;
 }
 
-.button:hover {
+.button:hover,
+.button:active {
   transform: scale(105%);
+  background: linear-gradient(
+      90deg,
+      rgba(132, 235, 155, 0.6) 5.48%,
+      rgba(30, 184, 64, 0.6) 96.58%
+    ),
+    #1eb940;
+}
+
+.button:active {
+  box-shadow: inset 2px 2px 10px 2px #1eb940;
 }
 
 .statistics-bottom {
