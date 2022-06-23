@@ -4673,60 +4673,56 @@ export default {
 
 <style scoped>
 .partners-logo {
-  width: 100%;
-  min-height: 70px;
-
+  width: 50%;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   align-content: space-between;
-  justify-content: center;
-  margin: 0 -10px;
+  margin: 0 -5px;
+  max-height: 153px;
 }
 
 .partners-logo svg {
   flex: 0 1 auto;
-  margin: 0 10px;
+  margin: 0 5px;
   margin-bottom: 10px;
+  transform: scale(80%);
 }
 
-@media screen and (min-width: 800px) and (max-width: 1000px) {
+.partners-logo svg path {
+  fill: rgba(157, 157, 157, 1);
+}
+
+@media screen and (max-width: 1000px) {
+  .partners-logo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+
   .partners-logo svg {
+    flex: 0 1 auto;
+    margin-bottom: 10px;
+  }
+
+  .partners-logo svg path {
+    fill: rgba(82, 82, 82, 1);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .partners-logo svg {
+    margin-bottom: 5px;
     transform: scale(70%);
   }
 }
 
-@media screen and (min-width: 600px) and (max-width: 800px) {
-  .partners-logo {
-    padding-top: 40px;
-    margin: 0 -50px;
-    min-width: 100vw;
-    background-color: #fff;
-  }
-
+@media screen and (max-width: 350px) {
   .partners-logo svg {
-    transform: scale(90%);
-    margin-bottom: 20px;
-  }
-  .partners-logo svg path {
-    fill: rgba(82, 82, 82, 1);
-  }
-}
-
-/* меньше 600px */
-@media screen and (max-width: 600px) {
-  .partners-logo {
-    padding-top: 60px;
-    margin: 0 -15px;
-    min-width: 100vw;
-    background-color: #fff;
-  }
-
-  .partners-logo svg {
-    transform: scale(80%);
-    margin-bottom: 20px;
-  }
-  .partners-logo svg path {
-    fill: rgba(82, 82, 82, 1);
+    margin-bottom: -5px;
   }
 }
 </style>

@@ -80,7 +80,7 @@ import ThankYouPage from "@/components/quiz/thank-you-page";
 export default {
   data() {
     return {
-      site: "bankhelp",
+      site: "creditcentr",
       error: null,
       color: "white",
       show_popup: false,
