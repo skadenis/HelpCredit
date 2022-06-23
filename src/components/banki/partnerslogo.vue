@@ -4704,6 +4704,7 @@ export default {
   }
 
   .partners-logo svg {
+    margin: 0 -5px;
     flex: 0 1 auto;
     margin-bottom: 10px;
   }
@@ -4715,14 +4716,9 @@ export default {
 
 @media screen and (max-width: 600px) {
   .partners-logo svg {
-    margin-bottom: 5px;
-    transform: scale(70%);
+    margin: 0 -5px;
+    transform: scale(60%);
   }
 }
 
-@media screen and (max-width: 350px) {
-  .partners-logo svg {
-    margin-bottom: -5px;
-  }
-}
 </style>

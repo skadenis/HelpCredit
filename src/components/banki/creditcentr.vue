@@ -260,7 +260,7 @@ export default {
 /* от 600px до 800px*/
 @media screen and (min-width: 600px) and (max-width: 800px) {
   .wrapper {
-    padding: 20px 50px 40px 50px;
+    padding: 20px 50px 70px 50px;
 
     background-image: url(../../assets/creditcentr_mobile_bg.jpg);
     background-position: top;
@@ -282,7 +282,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 75vh;
+    height: 70vh;
   }
 
   .button-block p {
@@ -305,16 +305,15 @@ export default {
 /* меньше 600px */
 @media screen and (max-width: 600px) {
   .wrapper {
-    padding: 20px 15px 40px 15px;
+    padding: 20px 15px 70px 15px;
     background-image: url(../../assets/creditcentr_mobile_bg.jpg);
-    background-position: bottom;
   }
 
   .header-block {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 75vh;
+    height: 70vh;
   }
 
   .header {
