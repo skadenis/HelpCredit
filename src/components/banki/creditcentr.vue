@@ -273,7 +273,12 @@ export default {
   .wrapper {
     padding: 20px 50px 90px 50px;
 
-    background-image: url(../../assets/creditcentr_mobile_bg.jpg);
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.5),
+        transparent
+      ),
+      url(../../assets/creditcentr_mobile_bg.jpg);
     background-position: top;
   }
 
@@ -283,10 +288,6 @@ export default {
 
     line-height: 39.1px;
     text-shadow: none;
-  }
-
-  .header span {
-    text-shadow: 0px 0px 24px rgbargba(0, 79, 37, 0.7);
   }
 
   .header-block {
@@ -317,7 +318,12 @@ export default {
 @media screen and (max-width: 600px) {
   .wrapper {
     padding: 20px 15px 90px 15px;
-    background-image: url(../../assets/creditcentr_mobile_bg.jpg);
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.5),
+        transparent
+      ),
+      url(../../assets/creditcentr_mobile_bg.jpg);
   }
 
   .header-block {
@@ -333,9 +339,6 @@ export default {
     line-height: 28.84px;
     text-align: center;
     text-shadow: none;
-  }
-  .header span {
-    text-shadow: 0px 0px 24px rgba(0, 79, 37, 0.7);
   }
   .button-block p {
     color: rgb(73, 73, 73);

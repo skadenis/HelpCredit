@@ -4678,15 +4678,14 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   align-content: space-between;
-  margin: 0 -5px;
+
   max-height: 153px;
 }
 
 .partners-logo svg {
   flex: 0 1 auto;
-  margin: 0 5px;
-  margin-bottom: 10px;
-  transform: scale(80%);
+  margin-right: 12px;
+  margin-bottom: 15px;
 }
 
 .partners-logo svg path {
@@ -4696,16 +4695,12 @@ export default {
 @media screen and (max-width: 1000px) {
   .partners-logo {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-content: space-between;
   }
 
   .partners-logo svg {
-    margin: 0 -5px;
-    flex: 0 1 auto;
+    transform: scale(80%);
+    flex: auto;
+    margin-right: 10px;
     margin-bottom: 10px;
   }
 
@@ -4716,9 +4711,9 @@ export default {
 
 @media screen and (max-width: 600px) {
   .partners-logo svg {
-    margin: 0 -5px;
-    transform: scale(60%);
+    margin-right: 5px;
+    margin-bottom: 5px;
+    flex: 80px;
   }
 }
-
 </style>
