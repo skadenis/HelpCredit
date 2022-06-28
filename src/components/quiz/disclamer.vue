@@ -41,7 +41,7 @@
       </p>
       <p>
         Узнать подробности вы можете по телефону
-        <a href="tel:+375297733661">+375 (29) 773-36-61</a>
+        <a href="tel:+375297456442">+375 (29) 745-64-42</a>
       </p>
       <p>Компания вправе взымать комиссию за свои услуги.</p>
     </div>
@@ -90,14 +90,8 @@ ul {
 
 @media screen and (max-width: 800px) {
   footer {
-    padding: 20px 0 20px 0;
+    padding: 35px 0 70px 0;
   }
-  .disclamer {
-    margin: 0 50px;
-  }
-}
-
-@media screen and (max-width: 600px) {
   .disclamer {
     margin: 0 15px;
   }

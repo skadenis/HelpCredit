@@ -4678,42 +4678,95 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   align-content: space-between;
-
-  max-height: 153px;
+  margin-bottom: 20px;
 }
 
 .partners-logo svg {
-  flex: 0 1 auto;
-  margin-right: 12px;
-  margin-bottom: 15px;
+  margin-right: 30px;
+  margin-bottom: 25px;
 }
 
 .partners-logo svg path {
-  fill: rgba(157, 157, 157, 1);
+  fill: rgba(125, 125, 125, 1);
 }
 
-@media screen and (max-width: 1000px) {
-  .partners-logo {
-    width: 100%;
-  }
-
+@media screen and (max-height: 800px) {
   .partners-logo svg {
-    transform: scale(80%);
-    flex: auto;
-    margin-right: 10px;
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .partners-logo svg {
+    margin-right: 20px;
     margin-bottom: 10px;
   }
+}
 
-  .partners-logo svg path {
-    fill: rgba(82, 82, 82, 1);
+@media screen and (max-width: 800px) {
+  .partners-logo {
+    width: 60%;
+  }
+
+  .partners-logo svg:nth-child(1) {
+    width: 58.06px;
+    height: 16px;
+  }
+
+  .partners-logo svg:nth-child(2) {
+    width: 75.29px;
+    height: 16px;
+  }
+
+  .partners-logo svg:nth-child(3) {
+    width: 67.77px;
+    height: 16px;
+  }
+  .partners-logo svg:nth-child(4) {
+    width: 100.74px;
+    height: 16px;
+  }
+  .partners-logo svg:nth-child(5) {
+    width: 153.38px;
+    height: 16px;
+  }
+  .partners-logo svg:nth-child(6) {
+    width: 24.98px;
+    height: 16px;
+  }
+  .partners-logo svg:nth-child(7) {
+    width: 55.16px;
+    height: 16px;
+  }
+  .partners-logo svg:nth-child(8) {
+    width: 76.8px;
+    height: 16px;
+  }
+  .partners-logo svg:nth-child(9) {
+    width: 62.79px;
+    height: 16px;
+  }
+  .partners-logo svg:nth-child(10) {
+    width: 44.87px;
+    height: 16px;
+  }
+  .partners-logo svg:nth-child(11) {
+    width: 90.54px;
+    height: 16px;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .partners-logo svg {
-    margin-right: 5px;
-    margin-bottom: 5px;
-    flex: 80px;
+  .partners-logo {
+    width: 80%;
   }
+
+  .partners-logo svg {
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
 }
 </style>
