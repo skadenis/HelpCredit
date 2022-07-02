@@ -29,8 +29,8 @@
         <div v-if="site === 'creditplus'" class="creditplus">
           <creditplus @some-event="this.show_page++"></creditplus>
         </div>
-        <div v-if="site === 'site'" class="site">
-          <site @some-event="this.show_page++"></site>
+        <div v-if="site === 'mtbcredit'" class="mtbcredit">
+          <mtbcredit @some-event="this.show_page++"></mtbcredit>
         </div>
       </div>
     </div>
@@ -83,12 +83,12 @@ import interviewForm from "@/components/quiz/interview-form";
 import wrapper_quiz_final from "@/components/quiz/wrapper_quiz_final";
 import ThankYouPage from "@/components/quiz/thank-you-page";
 import creditplus from "./banki/creditplus.vue";
-import site from "./banki/site.vue";
+import mtbcredit from "./banki/mtbcredit.vue";
 
 export default {
   data() {
     return {
-      site: "creditplus",
+      site: "mtbcredit",
       error: null,
       color: "white",
       show_popup: false,
@@ -188,7 +188,7 @@ export default {
     helpcredit,
     creditcentr,
     creditplus,
-    site,
+    mtbcredit,
   },
   mounted() {
     let uri = window.location.href.split("?");

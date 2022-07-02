@@ -187,7 +187,7 @@
       </div>
     </div>
 
-    <disclamer siteName="Credit-plus.by" />
+    <disclamer siteName="MTB-Credit.by" />
   </div>
 </template>
 
@@ -196,7 +196,7 @@ import disclamer from "@/components/quiz/disclamer.vue";
 import partnerslogo from "@/components/banki/partnerslogo.vue";
 
 export default {
-  name: "credit-plus",
+  name: "mtb-credit",
   data() {
     return {
       percent: "12,9%",
