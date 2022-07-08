@@ -4673,14 +4673,11 @@ export default {
 
 <style scoped>
 .partners-logo {
-  position: absolute;
-  top: 50px;
-  right: 0;
-  width: 40%;
+  margin-top: 20px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center;
   align-content: space-between;
 }
 
@@ -4760,14 +4757,16 @@ export default {
 
 @media screen and (max-width: 600px) {
   .partners-logo {
-    position: static;
-    width: 100%;
-
-    justify-content: center;
+    background-color: #fff;
+    padding: 40px 10px 10px 10px;
+    margin: 0 -15px;
   }
   .partners-logo svg {
     margin-right: 20px;
     margin-bottom: 10px;
+  }
+  .partners-logo svg path {
+    fill: rgba(82, 82, 82, 1);
   }
 }
 </style>
