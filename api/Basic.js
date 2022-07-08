@@ -2,7 +2,7 @@ import BaseApi from "./BaseApi";
 
 class Basic extends BaseApi {
   sendLead(data) {
-    data.token = "2xwr9egn348f9237fz234fmz023f70";
+    data.token = "youwiebndfxwo4hf7cw4fpumw40fmzweof";
     return this.axios.post("/add-lead", data);
   }
 }
