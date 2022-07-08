@@ -3,34 +3,34 @@
     <div class="page home_page" :class="site" v-if="show_page === 0">
       <div>
         <div v-if="site === 'help'" class="default-page">
-          <helpcredit @some-event="this.show_page++"></helpcredit>
+          <helpcredit @some-event="nextPage"></helpcredit>
         </div>
         <div v-if="site === 'best'" class="main creditbest">
-          <creditbest @some-event="this.show_page++"></creditbest>
+          <creditbest @some-event="nextPage"></creditbest>
         </div>
         <div v-if="site === 'alfabank'" class="alfabank">
-          <alfabank @some-event="this.show_page++"></alfabank>
+          <alfabank @some-event="nextPage"></alfabank>
         </div>
         <div v-if="site === 'belarusbank'" class="belarusbank">
-          <belarusbank @some-event="this.show_page++"></belarusbank>
+          <belarusbank @some-event="nextPage"></belarusbank>
         </div>
         <div v-if="site === 'mtbank'" class="mtbank">
-          <mtbank @some-event="this.show_page++"></mtbank>
+          <mtbank @some-event="nextPage"></mtbank>
         </div>
         <div v-if="site === 'bankdabrabyt'" class="bankdabrabyt">
-          <bankdabrabyt @some-event="this.show_page++"></bankdabrabyt>
+          <bankdabrabyt @some-event="nextPage"></bankdabrabyt>
         </div>
         <div v-if="site === 'creditcentr'" class="creditcentr">
-          <creditcentr @some-event="this.show_page++"></creditcentr>
+          <creditcentr @some-event="nextPage"></creditcentr>
         </div>
         <div v-if="site === 'bankhelp'" class="bankhelp">
-          <bankhelp @some-event="this.show_page++"></bankhelp>
+          <bankhelp @some-event="nextPage"></bankhelp>
         </div>
         <div v-if="site === 'creditplus'" class="creditplus">
-          <creditplus @some-event="this.show_page++"></creditplus>
+          <creditplus @some-event="nextPage"></creditplus>
         </div>
         <div v-if="site === 'mtbcredit'" class="mtbcredit">
-          <mtbcredit @some-event="this.show_page++"></mtbcredit>
+          <mtbcredit @some-event="nextPage"></mtbcredit>
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
             question: item.question,
             variants: item.variants,
           }"
-          @nextPage="show_page++"
+          @nextPage="nextPage"
           :initial-result="quiz[show_page]"
           @change-result="changeResult"
         />
@@ -54,7 +54,7 @@
 
     <div class="page" v-if="show_page === questions.length + 1">
       <wrapper_quiz_final
-        @nextPage="this.show_page++"
+        @nextPage="show_page++"
         @makeError="make_error"
         @sendForm="sendFormComponent"
         :initialData="form"
@@ -213,8 +213,16 @@ export default {
         this.show_page = 8;
         break;
       default:
-        this.show_page = 0;
-        this.error = null;
+        if (window.location.pathname.includes("/step-")) {
+          this.show_page = Number(
+            window.location.pathname.replace(/\/step-/gi, "")
+          );
+          this.error = null;
+        } else {
+          this.show_page = 0;
+          this.error = null;
+        }
+
         break;
     }
   },
@@ -249,6 +257,11 @@ export default {
     sendFormComponent(data) {
       this.form.phone = data.phone;
       this.sendForm();
+    },
+
+    nextPage() {
+      this.show_page++;
+      window.location.href = "/step-" + this.show_page;
     },
   },
 };
