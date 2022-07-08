@@ -88,7 +88,7 @@ import mtbcredit from "./banki/mtbcredit.vue";
 export default {
   data() {
     return {
-      site: "mtbcredit",
+      site: "creditplus",
       error: null,
       color: "white",
       show_popup: false,
