@@ -4673,7 +4673,7 @@ export default {
 
 <style scoped>
 .partners-logo {
-  width: 40%;
+  width: 50%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -4682,23 +4682,16 @@ export default {
 }
 
 .partners-logo svg {
-  margin-right: 30px;
-  margin-bottom: 25px;
+  margin-right: 20px;
+  margin-bottom: 15px;
 }
 
 .partners-logo svg path {
-  fill: rgba(82, 82, 82, 1);
-}
-
-@media screen and (max-height: 800px) {
-  .partners-logo svg {
-    margin-bottom: 15px;
-  }
+  fill: rgba(157, 157, 157, 1);
 }
 
 @media screen and (max-height: 600px) {
   .partners-logo svg {
-    margin-right: 20px;
     margin-bottom: 10px;
   }
 }
@@ -4755,7 +4748,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .partners-logo {
     width: 100%;
     display: flex;

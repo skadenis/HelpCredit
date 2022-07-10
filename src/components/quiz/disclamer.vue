@@ -89,6 +89,12 @@ ul {
 }
 
 @media screen and (max-width: 800px) {
+  .disclamer {
+    margin: 0 50px;
+  }
+}
+
+@media screen and (max-width: 600px) {
   footer {
     padding: 35px 0 70px 0;
   }

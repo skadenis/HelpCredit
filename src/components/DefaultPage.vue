@@ -2,10 +2,10 @@
   <div>
     <div class="page home_page" :class="site" v-if="show_page === 0">
       <div>
-        <div v-if="site === 'help'" class="default-page">
+        <div v-if="site === 'helpcredit'" class="default-page">
           <helpcredit @some-event="nextPage"></helpcredit>
         </div>
-        <div v-if="site === 'best'" class="main creditbest">
+        <div v-if="site === 'creditbest'" class="main creditbest">
           <creditbest @some-event="nextPage"></creditbest>
         </div>
         <div v-if="site === 'alfabank'" class="alfabank">
@@ -88,7 +88,7 @@ import mtbcredit from "./banki/mtbcredit.vue";
 export default {
   data() {
     return {
-      site: "creditplus",
+      site: "creditcentr",
       error: null,
       color: "white",
       show_popup: false,
