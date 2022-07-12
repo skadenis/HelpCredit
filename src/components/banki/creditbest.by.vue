@@ -45,6 +45,9 @@ export default {
   min-height: 100vh;
   padding: 0 50px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .image_partners .partners {
@@ -69,8 +72,7 @@ export default {
 }
 
 .button-padding-position {
-  margin-top: 18%;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 
 .button-padding-position .analis {
@@ -118,6 +120,7 @@ export default {
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
+  margin-bottom: 10px;
 }
 
 .btn-red:before {
@@ -277,7 +280,7 @@ export default {
   }
 
   .btn-red {
-    width: calc(100% - 30px);
+    width: 100%;
     min-width: 250px;
     font-size: 12px;
   }

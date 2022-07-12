@@ -88,7 +88,7 @@ import mtbcredit from "./banki/mtbcredit.vue";
 export default {
   data() {
     return {
-      site: "creditcentr",
+      site: "creditbest",
       error: null,
       color: "white",
       show_popup: false,
@@ -370,7 +370,7 @@ button.back {
   opacity: 0;
 }
 
-.home_page.best {
+.home_page.creditbest {
   min-width: 100%;
   width: 100%;
   min-height: 100%;
@@ -383,8 +383,9 @@ button.back {
 }
 
 @media (max-width: 1000px) {
-  .home_page.best {
-    background: url(//creditonline.by/assets/image/mobil-fon.jpg) no-repeat;
+  .home_page.creditbest {
+    background: url("//creditonline.by/assets/image/mobil-fon.jpg") no-repeat;
+    background-position-y: top;
   }
 }
 
