@@ -62,6 +62,7 @@ footer {
   height: 100%;
   padding: 40px 0;
 }
+
 .disclamer {
   margin: 0 80px;
   color: black;

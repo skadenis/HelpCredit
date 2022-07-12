@@ -23,10 +23,19 @@
           </div>
         </a>
         <span class="header"
-          >Подберем для Вас <span>самое выгодное</span> предложение среди всех
-          банков Беларуси</span
+          >Автокредит по <span>льготной ставке</span> от
+          <span>8,5%</span> годовых в белорусских рублях</span
         >
-        <partnerslogo />
+        <div class="terms">
+          <p><span>Без </span>залогов и каско</p>
+          <p><span>От </span>2500 до 200 000 BYN</p>
+          <p><span>До </span>7 лет</p>
+          <p><span>Без </span>поручителей</p>
+        </div>
+        <div>
+          <p class="partners">Более <span>20 </span>банков-партнеров:</p>
+          <partnerslogo />
+        </div>
         <div class="button-block">
           <p>
             Пройдите тест за 2 минуты и рассчитайте, на какую сумму вы можете
@@ -47,10 +56,10 @@
           </p>
           <p>{{ approval }} <span>одобрения</span></p>
           <p>
-            {{ rating }}
+            8
             <span
-              >звезды средняя<br />
-              оценка сервиса</span
+              >лет на рынке<br />
+              автокредитования</span
             >
           </p>
         </div>
@@ -62,8 +71,8 @@
         </p>
         <p>{{ approval }} <span>одобрения</span></p>
         <p>
-          {{ rating }}
-          <span>звезды средняя оценка сервиса</span>
+          8
+          <span>лет на рынке автокредитования</span>
         </p>
       </div>
     </div>
@@ -81,7 +90,6 @@ export default {
     return {
       clients: 10315,
       approval: "92,7%",
-      rating: "4,8",
       today: undefined,
     };
   },
@@ -126,7 +134,12 @@ export default {
   padding: 40px 0 0 75px;
 
   background-color: #f5f5f5;
-  background-image: url(../../assets/creditplus_bg.jpg);
+  background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.9),
+      transparent
+    ),
+    url(../../assets/avto-credit_bg.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -180,6 +193,41 @@ export default {
   color: rgba(0, 194, 89, 1);
 }
 
+.terms {
+  width: 40%;
+  min-width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.terms p {
+  width: 49%;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #000;
+  margin-block: 0;
+  margin-bottom: 10px;
+}
+
+.terms p span {
+  color: rgba(0, 194, 89, 1);
+}
+
+.partners {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #000;
+  margin-block: 0;
+  margin-bottom: 20px;
+}
+
+.partners span {
+  color: rgba(0, 194, 89, 1);
+}
+
 .statistics {
   margin-left: auto;
   display: flex;
@@ -224,8 +272,8 @@ export default {
 }
 
 .button-block p {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 12px;
+  line-height: 16px;
   font-weight: 700;
   color: #000;
   margin-block: 0;
@@ -333,6 +381,16 @@ export default {
     line-height: 54.26px;
   }
 
+  .terms p {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .partners {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
   .button-block {
     width: 520px;
   }
@@ -426,9 +484,14 @@ export default {
 /* от 600px до 800px*/
 @media screen and (min-width: 600px) and (max-width: 800px) {
   .credit {
-    background-image: url("../../assets/creditplus_bg.jpg");
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.9),
+        transparent
+      ),
+      url(../../assets/avto-credit_mobile.jpg);
     background-size: cover;
-    background-position-x: 70%;
+    background-position: center;
   }
 
   .wrapper {
@@ -457,14 +520,12 @@ export default {
   .credit {
     background-image: linear-gradient(
         90deg,
-        rgba(231, 231, 229, 0.7),
-        rgba(231, 231, 229, 0)
+        rgba(255, 255, 255, 0.9),
+        transparent
       ),
-      url("../../assets/credit_plus_mobile.jpg");
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-position-x: right;
-    background-position-y: 60%;
+      url(../../assets/avto-credit_mobile.jpg);
+    background-size: cover;
+    background-position-x: 50%;
   }
   .wrapper {
     padding: 15px 15px 90px 15px;
@@ -497,6 +558,13 @@ export default {
     line-height: 17.07px;
   }
 
+  .terms {
+    width: 100%;
+    min-width: 290px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+  }
+
   .button-block {
     box-sizing: border-box;
     display: flex;
@@ -507,8 +575,8 @@ export default {
 
   .button-block p {
     text-align: center;
-    font-size: 16px;
-    line-height: 19.2px;
+    font-size: 12px;
+    line-height: 14.2px;
 
     margin-bottom: 12px;
   }

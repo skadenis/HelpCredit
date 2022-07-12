@@ -4683,30 +4683,13 @@ export default {
 
 .partners-logo svg {
   margin-right: 30px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .partners-logo svg path {
   fill: rgba(82, 82, 82, 1);
 }
-
-@media screen and (max-height: 800px) {
-  .partners-logo svg {
-    margin-bottom: 15px;
-  }
-}
-
-@media screen and (max-height: 600px) {
-  .partners-logo svg {
-    margin-right: 20px;
-    margin-bottom: 10px;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .partners-logo {
-    top: 20px;
-  }
+@media screen and (max-width: 1600px) {
   .partners-logo svg:nth-child(1) {
     width: 58.06px;
     height: 16px;
@@ -4752,6 +4735,25 @@ export default {
   .partners-logo svg:nth-child(11) {
     width: 90.54px;
     height: 16px;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .partners-logo svg {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .partners-logo svg {
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .partners-logo {
+    width: 70%;
   }
 }
 
