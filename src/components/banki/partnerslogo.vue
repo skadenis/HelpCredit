@@ -4773,5 +4773,52 @@ export default {
   .partners-logo svg path {
     fill: rgba(82, 82, 82, 1);
   }
+
+  .partners-logo svg:nth-child(1) {
+    width: 46.448px;
+    height: 12.8px;
+  }
+
+  .partners-logo svg:nth-child(2) {
+    width: 60.232px;
+    height: 12.8px;
+  }
+
+  .partners-logo svg:nth-child(3) {
+    width: 54.216px;
+    height: 12.8px;
+  }
+  .partners-logo svg:nth-child(4) {
+    width: 80.592px;
+    height: 12.8px;
+  }
+  .partners-logo svg:nth-child(5) {
+    width: 122.704px;
+    height: 12.8px;
+  }
+  .partners-logo svg:nth-child(6) {
+    width: 19.984px;
+    height: 12.8px;
+  }
+  .partners-logo svg:nth-child(7) {
+    width: 44.128px;
+    height: 12.8px;
+  }
+  .partners-logo svg:nth-child(8) {
+    width: 61.44px;
+    height: 12.8px;
+  }
+  .partners-logo svg:nth-child(9) {
+    width: 50.232px;
+    height: 12.8px;
+  }
+  .partners-logo svg:nth-child(10) {
+    width: 35.896px;
+    height: 12.8px;
+  }
+  .partners-logo svg:nth-child(11) {
+    width: 72.432px;
+    height: 12.8px;
+  }
 }
 </style>

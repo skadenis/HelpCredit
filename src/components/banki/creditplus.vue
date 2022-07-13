@@ -525,7 +525,7 @@ export default {
       ),
       url(../../assets/avto-credit_mobile.jpg);
     background-size: cover;
-    background-position-x: 50%;
+    background-position-x: 60%;
   }
   .wrapper {
     padding: 15px 15px 90px 15px;
@@ -563,6 +563,16 @@ export default {
     min-width: 290px;
     margin: 0 auto 20px auto;
     text-align: center;
+  }
+
+  .terms p {
+    font-size: 12px;
+    line-height: 14.2px;
+  }
+
+  .partners {
+    font-size: 12px;
+    line-height: 14.2px;
   }
 
   .button-block {
