@@ -161,12 +161,12 @@ export default {
         },
       ],
       quiz: {
-        1: null,
-        2: null,
-        3: null,
-        4: null,
-        5: null,
-        6: null,
+        1: Number(localStorage.getItem('quiz1')),
+        2: Number(localStorage.getItem('quiz2')),
+        3: Number(localStorage.getItem('quiz3')),
+        4: Number(localStorage.getItem('quiz4')),
+        5: Number(localStorage.getItem('quiz5')),
+        6: Number(localStorage.getItem('quiz6')),
       },
       form: {
         phone: "",
@@ -260,6 +260,7 @@ export default {
     },
     changeResult(data) {
       this.quiz[data.index] = data.id;
+      localStorage.setItem('quiz'+data.index, data.id);
     },
     sendFormComponent(data) {
       this.form.phone = data.phone;
