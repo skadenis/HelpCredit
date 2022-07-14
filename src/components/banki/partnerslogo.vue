@@ -4673,11 +4673,14 @@ export default {
 
 <style scoped>
 .partners-logo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
   width: 40%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: right;
   align-content: space-between;
 }
 
@@ -4687,7 +4690,7 @@ export default {
 }
 
 .partners-logo svg path {
-  fill: rgba(82, 82, 82, 1);
+  fill: #fff;
 }
 @media screen and (max-width: 1600px) {
   .partners-logo svg:nth-child(1) {
@@ -4752,15 +4755,13 @@ export default {
 }
 
 @media screen and (max-width: 800px) {
-  .partners-logo {
-    width: 70%;
-  }
 }
 
 @media screen and (max-width: 600px) {
   .partners-logo {
     width: 100%;
     display: flex;
+    position: static;
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
@@ -4771,10 +4772,10 @@ export default {
     margin-bottom: 10px;
   }
   .partners-logo svg path {
-    fill: rgba(82, 82, 82, 1);
+    fill: #fff;
   }
 
-  .partners-logo svg:nth-child(1) {
+  /* .partners-logo svg:nth-child(1) {
     width: 46.448px;
     height: 12.8px;
   }
@@ -4819,6 +4820,6 @@ export default {
   .partners-logo svg:nth-child(11) {
     width: 72.432px;
     height: 12.8px;
-  }
+  } */
 }
 </style>

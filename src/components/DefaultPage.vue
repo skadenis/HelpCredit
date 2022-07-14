@@ -53,6 +53,10 @@
     </div>
 
     <div class="page" v-if="show_page === questions.length + 1">
+      <offers @some-event="nextPage" />
+    </div>
+
+    <div class="page" v-if="show_page === questions.length + 2">
       <wrapper_quiz_final
         @nextPage="show_page++"
         @makeError="make_error"
@@ -62,7 +66,8 @@
         :error="error"
       />
     </div>
-    <div class="page" v-if="show_page === questions.length + 2">
+
+    <div class="page" v-if="show_page === questions.length + 3">
       <thank-you-page />
     </div>
   </div>
@@ -84,11 +89,12 @@ import wrapper_quiz_final from "@/components/quiz/wrapper_quiz_final";
 import ThankYouPage from "@/components/quiz/thank-you-page";
 import creditplus from "./banki/creditplus.vue";
 import mtbcredit from "./banki/mtbcredit.vue";
+import offers from "./quiz/offers.vue";
 
 export default {
   data() {
     return {
-      site: "creditplus",
+      site: "mtbcredit",
       error: null,
       color: "white",
       show_popup: false,
@@ -189,6 +195,7 @@ export default {
     creditcentr,
     creditplus,
     mtbcredit,
+    offers,
   },
   mounted() {
     let uri = window.location.href.split("?");
@@ -303,10 +310,6 @@ button.back {
 .wrapper_quiz button {
   padding: 0;
   left: 0;
-  background-image: -webkit-linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
-  background-image: -ms-linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
-  background-image: -moz-linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
-  background: linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
   width: 200px;
   height: 48px;
   color: #fff;

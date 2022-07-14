@@ -97,7 +97,9 @@ export default {
   text-align: center;
   padding-left: 0;
 }
-
+.wrapper_quiz button {
+  background: linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
+}
 .wrapper_quiz.final .label {
   margin-top: 45px;
   text-align: left;

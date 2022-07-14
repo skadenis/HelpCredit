@@ -70,6 +70,10 @@ export default {
   margin: 15px 0;
 }
 
+.wrapper_quiz button {
+  background: linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
+}
+
 .wrapper_quiz .answers .variant {
   background-color: #e7e7e7;
   font-size: 18px;
