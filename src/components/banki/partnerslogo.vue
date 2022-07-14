@@ -4775,7 +4775,7 @@ export default {
     fill: #fff;
   }
 
-  /* .partners-logo svg:nth-child(1) {
+  .partners-logo svg:nth-child(1) {
     width: 46.448px;
     height: 12.8px;
   }
@@ -4820,6 +4820,6 @@ export default {
   .partners-logo svg:nth-child(11) {
     width: 72.432px;
     height: 12.8px;
-  } */
+  }
 }
 </style>

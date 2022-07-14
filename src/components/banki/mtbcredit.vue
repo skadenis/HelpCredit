@@ -22,10 +22,14 @@
         </div>
       </a>
       <partnerslogo />
+      <div class="logo">
+        <img class="logo-img" src="../../assets/cs-logo.png" />
+        <p>Сотрудничаем со всеми ведущими банками РБ</p>
+      </div>
       <p class="header">Быстрый кредит от 9,9% годовых</p>
       <p class="sub-title">
         Оформление за 10-15 минут. <br />
-        8 лет на рынке банеовских услуг.
+        8 лет на рынке банковских услуг.
       </p>
       <div class="stat">
         <div class="clock">
@@ -227,12 +231,33 @@ export default {
   justify-content: space-between;
 
   min-height: 100vh;
-  padding: 60px 80px 90px 80px;
+  padding: 20px 80px 90px 80px;
   background-color: #fff;
   background: url(../../assets/site-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 32%;
+}
+
+.logo p {
+  margin-block: 0;
+
+  font-size: 12px;
+  line-height: 14.63px;
+  color: rgba(125, 125, 125, 1);
+}
+
+.logo-img {
+  width: 46px;
+  height: 46px;
+  margin-right: 20px;
 }
 
 .phone {
@@ -459,6 +484,22 @@ export default {
     background-color: #fff;
     background-position: top;
     background-size: 100% 70%;
+  }
+
+  .logo {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .logo p {
+    color: rgb(255, 255, 255);
+  }
+
+  .logo-img {
+    margin-right: 0;
+    width: 30px;
+    height: 30px;
   }
 
   .phone-icon {
