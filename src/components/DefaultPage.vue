@@ -290,21 +290,21 @@ button.back {
   /* position: fixed; */
   top: 0;
   left: 0;
-  background: #f1f1f1;
+  /* background: #f1f1f1; */
   /* overflow: auto; */
 }
 
 .wrapper_quiz {
   max-width: 600px;
   width: calc(100% - 50px);
-  margin: 0 auto;
+  margin: 5vh auto;
   padding: 25px;
   background: #f2f2f2a8;
 
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
 .wrapper_quiz button {
