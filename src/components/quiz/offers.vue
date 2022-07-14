@@ -637,6 +637,21 @@ export default {
   font-weight: 600;
 }
 
+@media screen and (max-width: 600px) {
+  .bank div p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .bank-header {
+    justify-content: center;
+  }
+  .bank div p {
+    display: none;
+  }
+}
+
 .bank p {
   margin-block: 0;
 }
