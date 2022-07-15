@@ -4687,7 +4687,7 @@ export default {
 }
 
 .partners-logo svg path {
-  fill: #fff;
+  fill: rgb(93, 93, 93);
 }
 @media screen and (max-width: 1600px) {
   .partners-logo svg:nth-child(1) {
@@ -4767,9 +4767,6 @@ export default {
   .partners-logo svg {
     margin-right: 20px;
     margin-bottom: 10px;
-  }
-  .partners-logo svg path {
-    fill: #fff;
   }
 
   .partners-logo svg:nth-child(1) {

@@ -94,7 +94,7 @@ import offers from "./quiz/offers.vue";
 export default {
   data() {
     return {
-      site: "mtbcredit",
+      site: "creditcentr",
       error: null,
       color: "white",
       show_popup: false,
