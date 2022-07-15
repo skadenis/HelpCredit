@@ -18,11 +18,23 @@
         </p>
         <p>{{ approval }} <span>одобрения</span></p>
         <p>
-          {{ rating }}
+          8
           <span
-            >звезды средняя<br />
-            оценка сервиса</span
+            >лет на рынке<br />
+            банковских услуг</span
           >
+        </p>
+        <p>
+          От
+          <span>500 до 300 000 BYN</span>
+        </p>
+        <p>
+          До
+          <span>7 лет</span>
+        </p>
+        <p>
+          Без
+          <span>залога и поручителей</span>
         </p>
       </div>
       <div class="button-block">
@@ -37,8 +49,26 @@
       </p>
       <p>{{ approval }} <span>одобрения</span></p>
       <p>
-        {{ rating }}
-        <span>звезды средняя оценка сервиса</span>
+        8
+        <span
+          >лет на рынке<br />
+          банковских услуг</span
+        >
+      </p>
+      <p>
+        От
+        <span
+          >500 до<br />
+          300 000 BYN</span
+        >
+      </p>
+      <p>
+        До
+        <span>7 лет</span>
+      </p>
+      <p>
+        Без
+        <span>залога и поручителей</span>
       </p>
     </div>
     <disclamer siteName="CreditCentr.by" />
@@ -108,6 +138,7 @@ export default {
 .statistics {
   margin: 50px 0;
   display: flex;
+  flex-wrap: wrap;
   padding: 15px 0;
   justify-content: space-between;
   align-items: center;
@@ -119,7 +150,7 @@ export default {
 
 .statistics p {
   padding: 0 15px;
-  width: 33%;
+  width: 28%;
   margin-block: 0;
   display: flex;
   align-items: center;
@@ -130,9 +161,16 @@ export default {
   line-height: 34.13px;
 }
 
-.statistics p:nth-child(2) {
+.statistics p:nth-child(2),
+.statistics p:nth-child(5) {
   border-left: 1px solid rgba(236, 236, 236, 1);
   border-right: 1px solid rgba(236, 236, 236, 1);
+}
+
+.statistics p:nth-child(1),
+.statistics p:nth-child(2),
+.statistics p:nth-child(3) {
+  margin-bottom: 15px;
 }
 
 .statistics p span {
@@ -215,9 +253,15 @@ export default {
   line-height: 34.13px;
 }
 
-.statistics-bottom p:nth-child(2) {
+.statistics-bottom p {
   border-top: 1px solid rgba(236, 236, 236, 1);
   border-bottom: 1px solid rgba(236, 236, 236, 1);
+}
+
+.statistics-bottom p:nth-child(1),
+.statistics-bottom p:nth-child(6) {
+  border-top: none;
+  border-bottom: none;
 }
 .statistics-bottom p span {
   margin-top: 6px;
