@@ -94,7 +94,7 @@ import offers from "./quiz/offers.vue";
 export default {
   data() {
     return {
-      site: "mtbcredit",
+      site: "creditplus",
       error: null,
       color: "white",
       show_popup: false,
@@ -161,12 +161,12 @@ export default {
         },
       ],
       quiz: {
-        1: Number(localStorage.getItem('quiz1')),
-        2: Number(localStorage.getItem('quiz2')),
-        3: Number(localStorage.getItem('quiz3')),
-        4: Number(localStorage.getItem('quiz4')),
-        5: Number(localStorage.getItem('quiz5')),
-        6: Number(localStorage.getItem('quiz6')),
+        1: Number(localStorage.getItem("quiz1")),
+        2: Number(localStorage.getItem("quiz2")),
+        3: Number(localStorage.getItem("quiz3")),
+        4: Number(localStorage.getItem("quiz4")),
+        5: Number(localStorage.getItem("quiz5")),
+        6: Number(localStorage.getItem("quiz6")),
       },
       form: {
         phone: "",
@@ -260,7 +260,7 @@ export default {
     },
     changeResult(data) {
       this.quiz[data.index] = data.id;
-      localStorage.setItem('quiz'+data.index, data.id);
+      localStorage.setItem("quiz" + data.index, data.id);
     },
     sendFormComponent(data) {
       this.form.phone = data.phone;

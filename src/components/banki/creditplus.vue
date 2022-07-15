@@ -224,10 +224,6 @@ export default {
   margin-bottom: 20px;
 }
 
-.partners span {
-  color: rgba(0, 194, 89, 1);
-}
-
 .statistics {
   margin-left: auto;
   display: flex;
@@ -561,8 +557,10 @@ export default {
   .terms {
     width: 100%;
     min-width: 290px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 10px auto;
     text-align: center;
+    max-width: 120px;
+    justify-content: center;
   }
 
   .terms p {

@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper_quiz final">
     <p class="header">
-      Куда отправить расчет условий получения выгодного кредита?
+      Благодарим за ваши ответы.<br />Вероятность одобрения кредита
+      <span>{{ getRandomPercent(87, 98) }}%</span>
     </p>
     <p class="form_error" v-if="error !== null">{{ error }}</p>
     <p class="label">Ваш телефон:</p>
@@ -13,10 +14,7 @@
       :style="'border: 3px solid ' + this.color"
     />
     <p class="remark_form">
-      <i
-        >* на основании ответов мы подберем подходящие варианты и отправим
-        варианты и условия для получения кредита</i
-      >
+      <i>* мы передадим Ваши данные чтобы как можно скорее оформить заявку</i>
     </p>
     <div class="lock-block">
       <div class="lock">
@@ -39,7 +37,7 @@
       class="next sendForm"
       @click="form.phone.length === 17 ? sendForm() : make_error()"
     >
-      ПОДОБРАТЬ КРЕДИТ
+      ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
     </button>
   </div>
 </template>
@@ -71,6 +69,9 @@ export default {
     make_error() {
       this.$emit("makeError");
     },
+    getRandomPercent(min, max) {
+      return Math.random().toFixed(1) * (max - min) + min;
+    },
   },
 };
 </script>
@@ -80,6 +81,10 @@ export default {
   font-size: 150%;
   font-weight: bold;
   text-align: center;
+}
+
+.header span {
+  color: #03a626;
 }
 
 .wrapper_quiz.final p {
@@ -98,7 +103,7 @@ export default {
   padding-left: 0;
 }
 .wrapper_quiz button {
-  background: linear-gradient(90deg, #d4253e 0%, #de1f25 100%);
+  background: linear-gradient(90deg, #189818 0%, #119f11 100%);
 }
 .wrapper_quiz.final .label {
   margin-top: 45px;
