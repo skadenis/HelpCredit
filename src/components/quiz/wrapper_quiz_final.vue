@@ -1,9 +1,7 @@
 <template>
   <div class="wrapper_quiz final">
     <p class="header">
-      Благодарим за ваши ответы.<br />Вероятность одобрения кредита
-      <!-- <span>{{ getRandomPercent(87, 98) }}%</span> -->
-      <span>{{ progress }}%</span>
+      Куда отправить расчет условий получения выгодного кредита?
     </p>
     <p class="form_error" v-if="error !== null">{{ error }}</p>
     <p class="label">Ваш телефон:</p>
@@ -15,7 +13,10 @@
       :style="'border: 3px solid ' + this.color"
     />
     <p class="remark_form">
-      <i>* мы передадим Ваши данные чтобы как можно скорее оформить заявку</i>
+      <i
+        >* на основании ответов мы подберем подходящие варианты и отправим
+        варианты и условия для получения кредита</i
+      >
     </p>
     <div class="lock-block">
       <div class="lock">

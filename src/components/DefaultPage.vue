@@ -52,11 +52,11 @@
       </div>
     </div>
 
-    <div class="page" v-if="show_page === questions.length + 1">
+    <!-- <div class="page" v-if="show_page === questions.length + 1">
       <offers :percent="banks.cs.progress" @some-event="nextPage" />
-    </div>
+    </div> -->
 
-    <div class="page" v-if="show_page === questions.length + 2">
+    <div class="page" v-if="show_page === questions.length + 1">
       <wrapper_quiz_final
         @nextPage="show_page++"
         @makeError="make_error"
@@ -68,7 +68,7 @@
       />
     </div>
 
-    <div class="page" v-if="show_page === questions.length + 3">
+    <div class="page" v-if="show_page === questions.length + 2">
       <thank-you-page />
     </div>
   </div>
@@ -90,12 +90,12 @@ import wrapper_quiz_final from "@/components/quiz/wrapper_quiz_final";
 import ThankYouPage from "@/components/quiz/thank-you-page";
 import creditplus from "./banki/creditplus.vue";
 import mtbcredit from "./banki/mtbcredit.vue";
-import offers from "./quiz/offers.vue";
+// import offers from "./quiz/offers.vue";
 
 export default {
   data() {
     return {
-      site: "creditplus",
+      site: "bankhelp",
       error: null,
       color: "white",
       show_popup: false,
@@ -201,7 +201,7 @@ export default {
     creditcentr,
     creditplus,
     mtbcredit,
-    offers,
+    // offers,
   },
   mounted() {
     let uri = window.location.href.split("?");
