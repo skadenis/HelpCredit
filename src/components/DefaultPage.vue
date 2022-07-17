@@ -53,7 +53,7 @@
     </div>
 
     <div class="page" v-if="show_page === questions.length + 1">
-      <offers @some-event="nextPage" />
+      <offers :percent="banks.cs.progress" @some-event="nextPage" />
     </div>
 
     <div class="page" v-if="show_page === questions.length + 2">
@@ -64,6 +64,7 @@
         :initialData="form"
         :color="color"
         :error="error"
+        :percent="banks.cs.progress"
       />
     </div>
 
@@ -99,6 +100,11 @@ export default {
       color: "white",
       show_popup: false,
       show_page: 0,
+      banks: {
+        cs: {
+          progress: undefined,
+        },
+      },
       questions: [
         {
           question: "Какая сумма нужна?",
@@ -234,6 +240,10 @@ export default {
     }
   },
   methods: {
+    getRandomPercent(min, max) {
+      return Math.random().toFixed(1) * (max - min) + min;
+    },
+
     addSum() {
       this.amount += this.randomInteger(100, 1000);
     },
@@ -271,6 +281,9 @@ export default {
       this.show_page++;
       window.location.href = "/step-" + this.show_page;
     },
+  },
+  created() {
+    this.banks.cs.progress = this.getRandomPercent(83, 98);
   },
 };
 </script>

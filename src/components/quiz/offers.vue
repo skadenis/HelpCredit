@@ -6,16 +6,16 @@
         <p>Кредитные системы</p>
       </div>
       <p>
-        Вероятность одобрения <span>{{ banks.cs.progress }}%</span>
+        Вероятность одобрения <span>{{ progress }}%</span>
       </p>
       <div class="progress-bar">
         <div
           class="progress"
-          :class="getBg(banks.cs.progress)"
-          :style="'width:' + banks.cs.progress + '%'"
+          :class="getBg(progress)"
+          :style="'width:' + progress + '%'"
         ></div>
       </div>
-      <button :class="getBg(banks.cs.progress)" @click="$emit('someEvent')">
+      <button :class="getBg(progress)" @click="$emit('someEvent')">
         Оставить заявку
       </button>
     </div>
@@ -519,13 +519,11 @@
 <script>
 export default {
   name: "offers-page",
-
+  props: ["percent"],
   data() {
     return {
+      progress: this.percent,
       banks: {
-        cs: {
-          progress: undefined,
-        },
         alfa: {
           status: undefined,
           progress: undefined,
@@ -562,7 +560,7 @@ export default {
     };
   },
   created() {
-    this.banks.cs.progress = this.getRandomPercent(83, 98);
+    // this.banks.cs.progress = this.getRandomPercent(83, 98);
     // this.getRandomInt(0, 2) === 1
     //   ? (this.banks.alfa.status = true) && (this.banks.mtb.status = true)
     //   : (this.banks.alfa.status = false) && (this.banks.mtb.status = false);

@@ -2,7 +2,8 @@
   <div class="wrapper_quiz final">
     <p class="header">
       Благодарим за ваши ответы.<br />Вероятность одобрения кредита
-      <span>{{ getRandomPercent(87, 98) }}%</span>
+      <!-- <span>{{ getRandomPercent(87, 98) }}%</span> -->
+      <span>{{ progress }}%</span>
     </p>
     <p class="form_error" v-if="error !== null">{{ error }}</p>
     <p class="label">Ваш телефон:</p>
@@ -48,10 +49,11 @@ import { maska } from "maska";
 export default {
   directives: { maska },
   name: "wrapper_quiz_final",
-  props: ["initialData", "error", "color"],
+  props: ["initialData", "error", "color", "percent"],
   data() {
     return {
       form: {},
+      progress: this.percent,
     };
   },
   watch: {
@@ -68,9 +70,6 @@ export default {
     },
     make_error() {
       this.$emit("makeError");
-    },
-    getRandomPercent(min, max) {
-      return Math.random().toFixed(1) * (max - min) + min;
     },
   },
 };
