@@ -1,17 +1,12 @@
 <template>
   <div>
-    <div class="helpcredit_content">
+    <div class="helpcredit">
       <div class="header">
-        <div class="partners">
-          <img src="../../assets/partners.svg" alt="логотип" />
-        </div>
         <div class="logo">
           <img src="../../assets/logo-helpcredit.svg" alt="логотип" />
         </div>
-
-        <div class="today_credit_block">
-          <p class="today_credit">Cегодня одобрено кредитов на:</p>
-          <p class="today_credit_amount">{{ formatter(amount) }}</p>
+        <div class="partners">
+          <img src="../../assets/partners.svg" alt="логотип" />
         </div>
       </div>
       <div class="content">
@@ -26,7 +21,7 @@
       </div>
     </div>
 
-    <disclamer siteName="BankCredit.by" />
+    <disclamer siteName="Bank-Credit.by" />
   </div>
 </template>
 
@@ -55,11 +50,36 @@ export default {
 </script>
 
 <style scoped>
-.helpcredit_content {
+.helpcredit {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("/src/assets/bg.png");
+  background-size: cover;
   min-height: 100vh;
+  padding: 20px;
 }
-footer {
-  background: #fff;
-  width: 100%;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .logo img {
+  width: 286px;
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header .logo {
+    margin-bottom: 30px;
+  }
+
+  .header .partners img {
+    width: 286px;
+  }
 }
 </style>

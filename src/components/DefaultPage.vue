@@ -95,7 +95,7 @@ import mtbcredit from "./banki/mtbcredit.vue";
 export default {
   data() {
     return {
-      site: "best",
+      site: "help",
       error: null,
       color: "white",
       show_popup: false,
@@ -442,11 +442,11 @@ button.back {
   margin-left: auto;
 }
 
-.home_page.help {
+/* .home_page.help {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
     url("/src/assets/bg.png");
   background-size: cover;
-}
+} */
 
 .default-page {
   width: 100%;
