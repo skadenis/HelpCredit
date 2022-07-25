@@ -207,7 +207,7 @@ export default {
     let uri = window.location.href.split("?");
     if (uri.length === 2) {
       let vars = uri[1].split("&");
-      let getVars = {};
+      let getVars = [];
       let tmp = "";
       vars.forEach(function (v) {
         tmp = v.split("=");
